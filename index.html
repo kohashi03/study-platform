@@ -75,7 +75,7 @@
     <div class="stats">
       <div class="stat"><b id="totalQuestions">0</b><br><span class="small muted">全問題</span></div>
       <div class="stat"><b id="unansweredQuestions">0</b><br><span class="small muted">未回答</span></div>
-      <div class="stat"><b id="wrongQuestions">0</b><br><span class="small muted">要復習</span></div>
+      <div class="stat"><b id="wrongQuestions">0</b><br><span class="small muted">未定着</span></div>
       <div class="stat"><b id="overallRate">-</b><br><span class="small muted">正答率</span></div>
     </div>
 
@@ -91,11 +91,13 @@
       <div>
         <label class="label" for="scope">出題対象</label>
         <select id="scope" class="field">
+          <option value="unmastered">未定着の問題</option>
           <option value="unanswered">まだ解いていない問題</option>
-          <option value="all">すべての問題</option>
-          <option value="wrong">間違えたことがある問題</option>
+          <option value="weak">苦手な問題</option>
+          <option value="learning">理解途中の問題</option>
+          <option value="mastered">定着した問題</option>
           <option value="unknown">「わからない」を選んだ問題</option>
-          <option value="mastered">直近で正解した問題</option>
+          <option value="all">すべての問題</option>
         </select>
       </div>
       <div>
@@ -109,7 +111,23 @@
       </div>
     </div>
 
-    <p id="availability" class="small muted"></p>
+    <h2>範囲を絞り込む</h2>
+    <div class="grid3">
+      <div>
+        <label class="label" for="lessonFilter">授業資料</label>
+        <select id="lessonFilter" class="field"><option value="">すべて</option></select>
+      </div>
+      <div>
+        <label class="label" for="topicFilter">テーマ</label>
+        <select id="topicFilter" class="field"><option value="">すべて</option></select>
+      </div>
+      <div>
+        <label class="label" for="searchQuery">問題検索</label>
+        <input id="searchQuery" class="field" type="search" placeholder="例：給特法、教育権論">
+      </div>
+    </div>
+
+    <p id="availability" class="small muted"></p><p class="small muted">理解度：未回答／苦手（直近が不正解）／理解途中（正解1回）／定着（2回連続正解）</p>
     <button id="startQuiz" class="primary" style="width:100%">学習を開始</button>
   </section>
 
@@ -170,14 +188,14 @@
     <input id="importFile" type="file" accept="application/json" class="hidden">
     <p class="small muted">記録は各自のブラウザ内に保存されます。他の利用者の記録とは混ざりません。</p>
     <h2>アプリについて</h2>
-    <p>連続学習日数など、試験前の短期集中学習に不要な機能は搭載していません。</p>
+    <p>連続学習日数などは搭載せず、未定着問題・授業資料・テーマ・検索による絞り込みに集中しています。</p>
   </section>
 </div>
 
 <script>
 'use strict';
 const STORAGE_KEY = 'study-platform-progress-v1';
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.1.0';
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
@@ -203,8 +221,10 @@ function subjectProgress(){
 }
 function itemProgress(id){
   const sp = subjectProgress();
-  if(!sp.items[id]) sp.items[id] = {attempts:0, correct:0, wrong:0, unknown:0, lastResult:null, lastAnsweredAt:null};
-  return sp.items[id];
+  if(!sp.items[id]) sp.items[id] = {attempts:0, correct:0, wrong:0, unknown:0, correctStreak:0, lastResult:null, lastAnsweredAt:null};
+  const p=sp.items[id];
+  if(typeof p.correctStreak!=='number') p.correctStreak=p.lastResult==='correct'?1:0;
+  return p;
 }
 function shuffle(items){
   const arr=[...items];
@@ -219,6 +239,16 @@ function answerLabel(q){
   if(q.type==='fill') return q.answer;
   if(q.type==='tf') return q.answer ? '○' : '×';
   return `${q.answer+1}. ${q.options[q.answer]}`;
+}
+function learningStatus(q){
+  const p=subjectProgress().items[q.id];
+  if(!p || !p.attempts) return 'unanswered';
+  if(p.lastResult==='wrong' || p.lastResult==='unknown') return 'weak';
+  const streak=typeof p.correctStreak==='number'?p.correctStreak:(p.lastResult==='correct'?1:0);
+  return streak>=2 ? 'mastered' : 'learning';
+}
+function statusName(status){
+  return ({unanswered:'未回答',weak:'苦手',learning:'理解途中',mastered:'定着'})[status]||status;
 }
 function sourceKey(q){
   const s=q.source||{};
@@ -244,7 +274,15 @@ async function loadSubject(id){
   subject=await fetch(entry.dataFile,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`${entry.title}の問題データを取得できません`);return r.json()});
   activeSubjectId=id;
   localStorage.setItem('study-platform-active-subject',id);
+  populateFilters();
   renderAll();
+}
+function populateFilters(){
+  const files=[...new Set(subject.questions.map(q=>q.source?.displayFile||q.source?.file).filter(Boolean))].sort();
+  const topics=[...new Set(subject.questions.map(q=>q.source?.topic).filter(Boolean))].sort();
+  $('#lessonFilter').innerHTML='<option value="">すべて</option>'+files.map(x=>`<option value="${escapeAttr(x)}">${escapeHtml(x)}</option>`).join('');
+  $('#topicFilter').innerHTML='<option value="">すべて</option>'+topics.map(x=>`<option value="${escapeAttr(x)}">${escapeHtml(x)}</option>`).join('');
+  $('#searchQuery').value='';
 }
 function showView(id){
   ['study','quiz','result','subjects','analysis','materials','settings'].forEach(v=>$('#'+v)?.classList.toggle('hidden',v!==id));
@@ -264,25 +302,37 @@ function renderStudy(){
   const sp=subjectProgress();
   const total=subject.questions.length;
   const attempted=subject.questions.filter(q=>(sp.items[q.id]?.attempts||0)>0).length;
-  const wrong=subject.questions.filter(q=>(sp.items[q.id]?.wrong||0)>0 && sp.items[q.id]?.lastResult!=='correct').length;
+  const unmastered=subject.questions.filter(q=>learningStatus(q)!=='mastered').length;
   $('#subjectSubtitle').textContent=`${subject.title}：${subject.description||''}`;
   $('#totalQuestions').textContent=total;
   $('#unansweredQuestions').textContent=total-attempted;
-  $('#wrongQuestions').textContent=wrong;
+  $('#wrongQuestions').textContent=unmastered;
   $('#overallRate').textContent=sp.attempts?`${Math.round(sp.correct/sp.attempts*100)}%`:'-';
   updateAvailability();
 }
 function eligibleQuestions(){
   const scope=$('#scope').value;
   const sp=subjectProgress();
+  const lesson=$('#lessonFilter').value;
+  const topic=$('#topicFilter').value;
+  const query=normalize($('#searchQuery').value||'');
   return subject.questions.filter(q=>{
     if(mode!=='all' && q.type!==mode) return false;
+    if(lesson && (q.source?.displayFile||q.source?.file)!==lesson) return false;
+    if(topic && q.source?.topic!==topic) return false;
+    if(query){
+      const haystack=normalize([q.q,q.explanation,q.source?.topic,q.source?.displayFile,...(q.tags||[])].filter(Boolean).join(' '));
+      if(!haystack.includes(query)) return false;
+    }
     const p=sp.items[q.id];
+    const status=learningStatus(q);
     if(scope==='all') return true;
-    if(scope==='unanswered') return !p || p.attempts===0;
-    if(scope==='wrong') return !!p && p.wrong>0 && p.lastResult!=='correct';
+    if(scope==='unmastered') return status!=='mastered';
+    if(scope==='unanswered') return status==='unanswered';
+    if(scope==='weak') return status==='weak';
+    if(scope==='learning') return status==='learning';
+    if(scope==='mastered') return status==='mastered';
     if(scope==='unknown') return !!p && p.unknown>0;
-    if(scope==='mastered') return !!p && p.lastResult==='correct';
     return true;
   });
 }
@@ -355,9 +405,9 @@ function checkAnswer(){
   const sp=subjectProgress(), ip=itemProgress(q.id);
   sp.attempts++; ip.attempts++; ip.lastAnsweredAt=new Date().toISOString();
   if(correct){
-    quizScore++; sp.correct++; ip.correct++; ip.lastResult='correct';
+    quizScore++; sp.correct++; ip.correct++; ip.correctStreak=(ip.correctStreak||0)+1; ip.lastResult='correct';
   }else{
-    ip.wrong++; ip.lastResult=unknown?'unknown':'wrong';
+    ip.wrong++; ip.correctStreak=0; ip.lastResult=unknown?'unknown':'wrong';
     if(unknown) ip.unknown++;
     sessionWrong.push(q);
   }
@@ -424,7 +474,7 @@ function renderAnalysis(){
   $('#analysisList').innerHTML=rows.length?rows.map(({q,p})=>`
     <div class="row">
       <b>${escapeHtml(q.q)}</b><br>
-      <span class="tag">誤答 ${p.wrong}回</span><span class="tag">わからない ${p.unknown}回</span><span class="tag">${escapeHtml(questionTypeName(q.type))}</span><br>
+      <span class="tag">${escapeHtml(statusName(learningStatus(q)))}</span><span class="tag">誤答 ${p.wrong}回</span><span class="tag">わからない ${p.unknown}回</span><span class="tag">${escapeHtml(questionTypeName(q.type))}</span><br>
       <span class="small muted">${escapeHtml(q.source?.displayFile||'資料未設定')} p.${escapeHtml(q.source?.pages||'未設定')}</span>
     </div>`).join(''):'<div class="empty">苦手問題はまだ記録されていません。</div>';
 }
@@ -480,6 +530,9 @@ $$('.mode').forEach(b=>b.onclick=()=>{
 });
 $('#scope').onchange=updateAvailability;
 $('#count').onchange=updateAvailability;
+$('#lessonFilter').onchange=updateAvailability;
+$('#topicFilter').onchange=updateAvailability;
+$('#searchQuery').oninput=updateAvailability;
 $('#startQuiz').onclick=()=>startQuiz();
 $('#submitAnswer').onclick=checkAnswer;
 $('#nextQuestion').onclick=nextQuestion;
