@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "platformVersion": "1.0.0",
+  "subjects": [
+    {
+      "id": "educational-organization",
+      "title": "教育組織論",
+      "description": "教育法規・教育行政・学校経営",
+      "dataFile": "data/educational-organization.json",
+      "enabled": true
+    }
+  ]
+}

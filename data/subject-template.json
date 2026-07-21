@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "new-subject",
+  "title": "新しい科目",
+  "description": "科目の説明",
+  "version": "1.0.0",
+  "updatedAt": "2026-07-21",
+  "questions": [
+    {
+      "id": "new-subject-fill-001",
+      "type": "fill",
+      "q": "（　　　）に入る語を答えなさい。",
+      "answer": "正解",
+      "aliases": [],
+      "explanation": "解説を記入します。",
+      "source": {
+        "displayFile": "第1回.pdf",
+        "pages": "1",
+        "pageTarget": 1,
+        "topic": "テーマ",
+        "url": null
+      }
+    }
+  ]
+}

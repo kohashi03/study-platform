@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#315efb">
+  <meta name="description" content="複数科目に対応した試験対策用学習プラットフォーム">
+  <title>Study Platform</title>
+  <style>
+    :root {
+      --bg:#f4f7fb; --surface:#fff; --surface2:#eef3fb; --text:#172033;
+      --muted:#68758c; --line:#dbe3ef; --accent:#315efb; --accent-soft:#e9eeff;
+      --good:#18783c; --bad:#b4232c; --warn:#8a6500; --shadow:0 10px 30px rgba(31,45,80,.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
+    button,select,input{font:inherit}
+    button{border:0;border-radius:12px;padding:12px 14px;font-weight:700;cursor:pointer}
+    button:disabled{opacity:.45;cursor:not-allowed}
+    .app{max-width:980px;margin:auto;padding:14px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:19px;padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+    .header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+    h1{font-size:1.7rem;margin:.1rem 0}.subtitle{color:var(--muted);margin:.35rem 0 0;line-height:1.55}
+    h2{font-size:1.16rem;margin:1.3rem 0 .7rem}h3{font-size:1rem;margin:1rem 0 .5rem}
+    .tabs{display:flex;gap:7px;overflow:auto;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10}
+    .tab{white-space:nowrap;background:#e7edf5;color:#344054}.tab.active{background:var(--accent);color:#fff}
+    .primary{background:var(--accent);color:#fff}.secondary{background:var(--accent-soft);color:#2944a8}.ghost{background:#eef2f7;color:#344054}
+    .danger{background:#fff0f1;color:var(--bad)}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+    .stat{background:#f2f5fa;border-radius:13px;padding:12px 8px;text-align:center}.stat b{font-size:1.15rem}
+    .field{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text)}
+    .label{display:block;font-size:.9rem;font-weight:700;margin:11px 0 6px}.muted{color:var(--muted)}.small{font-size:.86rem}
+    .hidden{display:none!important}.topline{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+    .progress{height:9px;background:#e5ebf4;border-radius:99px;overflow:hidden;margin:11px 0 17px}.progress>div{height:100%;background:var(--accent)}
+    .question{font-size:1.22rem;line-height:1.65}.choice{width:100%;text-align:left;background:#fff;border:1px solid var(--line);margin:6px 0}
+    .choice:hover{background:#f7f9fc}.choice.selected{outline:3px solid #b9c7ff;background:#f3f6ff}
+    .feedback{margin-top:14px;background:#f2f5fa;padding:15px;border-radius:13px;line-height:1.65}
+    .source{margin-top:12px;padding:13px;background:#edf2ff;border-left:4px solid var(--accent);border-radius:9px}
+    .source a{display:inline-block;margin-top:8px;text-decoration:none;background:var(--accent);color:#fff;padding:9px 11px;border-radius:10px;font-weight:700}
+    .good{color:var(--good)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+    .row{padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}
+    .tag{display:inline-block;padding:3px 8px;border-radius:99px;background:#edf1f7;margin:2px;font-size:.8rem}
+    .bar{height:8px;background:#e7ecf4;border-radius:99px;overflow:hidden}.bar div{height:100%;background:var(--bad)}
+    .empty{padding:25px;text-align:center;background:#f5f7fb;border-radius:13px;color:var(--muted)}
+    .subject-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+    .subject-card.active{outline:3px solid #bdcaff;background:#f4f6ff}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap}.toolbar>*{flex:1;min-width:150px}
+    .notice{padding:12px;border-radius:12px;background:#fff8dd;color:#6f5500;line-height:1.55}
+    .version{font-size:.8rem;color:var(--muted)}
+    @media(max-width:680px){
+      .grid,.grid3{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}
+      .app{padding:10px}.card{padding:16px}.question{font-size:1.1rem}
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <nav class="tabs" aria-label="メインメニュー">
+    <button class="tab active" data-view="study">学習</button>
+    <button class="tab" data-view="subjects">科目</button>
+    <button class="tab" data-view="analysis">苦手分析</button>
+    <button class="tab" data-view="materials">復習資料</button>
+    <button class="tab" data-view="settings">設定</button>
+  </nav>
+
+  <section id="loading" class="card"><h1>Study Platform</h1><p>問題データを読み込んでいます……</p></section>
+
+  <section id="study" class="card hidden">
+    <div class="header">
+      <div><h1>Study Platform</h1><p class="subtitle" id="subjectSubtitle"></p></div>
+      <span class="version" id="versionLabel"></span>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="totalQuestions">0</b><br><span class="small muted">全問題</span></div>
+      <div class="stat"><b id="unansweredQuestions">0</b><br><span class="small muted">未回答</span></div>
+      <div class="stat"><b id="wrongQuestions">0</b><br><span class="small muted">要復習</span></div>
+      <div class="stat"><b id="overallRate">-</b><br><span class="small muted">正答率</span></div>
+    </div>
+
+    <h2>問題形式</h2>
+    <div class="grid">
+      <button class="secondary mode active-mode" data-mode="all">ランダム総合</button>
+      <button class="secondary mode" data-mode="fill">穴埋め</button>
+      <button class="secondary mode" data-mode="tf">○×</button>
+      <button class="secondary mode" data-mode="mcq">四択</button>
+    </div>
+
+    <div class="grid">
+      <div>
+        <label class="label" for="scope">出題対象</label>
+        <select id="scope" class="field">
+          <option value="unanswered">まだ解いていない問題</option>
+          <option value="all">すべての問題</option>
+          <option value="wrong">間違えたことがある問題</option>
+          <option value="unknown">「わからない」を選んだ問題</option>
+          <option value="mastered">直近で正解した問題</option>
+        </select>
+      </div>
+      <div>
+        <label class="label" for="count">問題数</label>
+        <select id="count" class="field">
+          <option value="10">10問</option>
+          <option value="20">20問</option>
+          <option value="30">30問</option>
+          <option value="all">対象をすべて</option>
+        </select>
+      </div>
+    </div>
+
+    <p id="availability" class="small muted"></p>
+    <button id="startQuiz" class="primary" style="width:100%">学習を開始</button>
+  </section>
+
+  <section id="quiz" class="card hidden">
+    <div class="topline">
+      <span id="quizCounter"></span><span id="quizScore"></span>
+    </div>
+    <div class="progress"><div id="quizProgress"></div></div>
+    <span id="questionType" class="tag"></span>
+    <h2 id="questionText" class="question"></h2>
+    <div id="answerArea"></div>
+    <button id="submitAnswer" class="primary" style="width:100%;margin-top:12px">解答する</button>
+    <div id="feedback" class="feedback hidden"></div>
+    <button id="nextQuestion" class="primary hidden" style="width:100%;margin-top:12px">次の問題</button>
+    <button id="quitQuiz" class="ghost" style="width:100%;margin-top:8px">途中で終了</button>
+  </section>
+
+  <section id="result" class="card hidden">
+    <h1>学習結果</h1>
+    <div class="stats">
+      <div class="stat"><b id="resultScore"></b><br><span class="small muted">正解</span></div>
+      <div class="stat"><b id="resultRate"></b><br><span class="small muted">正答率</span></div>
+      <div class="stat"><b id="resultWrong"></b><br><span class="small muted">今回の誤答</span></div>
+      <div class="stat"><b id="resultSources"></b><br><span class="small muted">要復習資料</span></div>
+    </div>
+    <div id="resultReview"></div>
+    <button id="retryWrong" class="primary" style="width:100%">今回間違えた問題に再挑戦</button>
+    <button id="backHome" class="ghost" style="width:100%;margin-top:8px">学習画面へ戻る</button>
+  </section>
+
+  <section id="subjects" class="card hidden">
+    <h1>科目</h1>
+    <p class="subtitle">JSONファイルを追加することで、アプリ本体を作り直さずに科目を増やせます。</p>
+    <div id="subjectList" class="grid"></div>
+  </section>
+
+  <section id="analysis" class="card hidden">
+    <h1>苦手分析</h1>
+    <p class="subtitle">誤答回数と「わからない」の回数が多い問題を優先表示します。</p>
+    <div id="analysisList"></div>
+  </section>
+
+  <section id="materials" class="card hidden">
+    <h1>復習資料</h1>
+    <p class="subtitle">誤答の多い資料・ページから順に表示します。</p>
+    <div class="notice">授業資料をWeb上に置く場合は、担当教員の配布条件や再共有の可否を確認してください。資料URLを設定しなくても、ファイル名とページ番号は表示されます。</div>
+    <div id="materialsList"></div>
+  </section>
+
+  <section id="settings" class="card hidden">
+    <h1>設定</h1>
+    <h2>学習記録</h2>
+    <div class="toolbar">
+      <button id="exportProgress" class="secondary">記録を書き出す</button>
+      <button id="importProgress" class="secondary">記録を読み込む</button>
+      <button id="resetProgress" class="danger">この科目の記録を削除</button>
+    </div>
+    <input id="importFile" type="file" accept="application/json" class="hidden">
+    <p class="small muted">記録は各自のブラウザ内に保存されます。他の利用者の記録とは混ざりません。</p>
+    <h2>アプリについて</h2>
+    <p>連続学習日数など、試験前の短期集中学習に不要な機能は搭載していません。</p>
+  </section>
+</div>
+
+<script>
+'use strict';
+const STORAGE_KEY = 'study-platform-progress-v1';
+const APP_VERSION = '1.0.0';
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+
+let catalog = null;
+let subject = null;
+let activeSubjectId = localStorage.getItem('study-platform-active-subject') || '';
+let progress = loadProgress();
+let mode = 'all';
+let quiz = [];
+let quizIndex = 0;
+let quizScore = 0;
+let answered = false;
+let sessionWrong = [];
+
+function loadProgress(){
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {subjects:{}}; }
+  catch { return {subjects:{}}; }
+}
+function saveProgress(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); }
+function subjectProgress(){
+  if(!progress.subjects[subject.id]) progress.subjects[subject.id] = {items:{}, attempts:0, correct:0};
+  return progress.subjects[subject.id];
+}
+function itemProgress(id){
+  const sp = subjectProgress();
+  if(!sp.items[id]) sp.items[id] = {attempts:0, correct:0, wrong:0, unknown:0, lastResult:null, lastAnsweredAt:null};
+  return sp.items[id];
+}
+function shuffle(items){
+  const arr=[...items];
+  for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}
+  return arr;
+}
+function normalize(value){
+  return String(value).trim().replace(/[ 　]/g,'').replace(/[（）()]/g,'').toLowerCase();
+}
+function questionTypeName(type){ return type==='fill'?'穴埋め':type==='tf'?'○×':'四択'; }
+function answerLabel(q){
+  if(q.type==='fill') return q.answer;
+  if(q.type==='tf') return q.answer ? '○' : '×';
+  return `${q.answer+1}. ${q.options[q.answer]}`;
+}
+function sourceKey(q){
+  const s=q.source||{};
+  return `${s.displayFile||s.file||'資料未設定'}｜${s.pages||'ページ未設定'}｜${s.topic||''}`;
+}
+
+async function initialize(){
+  try{
+    catalog = await fetch('data/subjects.json', {cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('科目一覧を取得できません');return r.json()});
+    const enabled = catalog.subjects.filter(s=>s.enabled!==false);
+    if(!enabled.length) throw new Error('有効な科目がありません');
+    if(!enabled.some(s=>s.id===activeSubjectId)) activeSubjectId=enabled[0].id;
+    await loadSubject(activeSubjectId);
+    $('#loading').classList.add('hidden');
+    showView('study');
+  }catch(error){
+    $('#loading').innerHTML=`<h1>読み込みに失敗しました</h1><p>${escapeHtml(error.message)}</p><p class="small muted">このアプリはGitHub PagesなどのWebサーバー上で使用してください。Finderからindex.htmlを直接開くと、ブラウザの制限でJSONを読み込めない場合があります。</p>`;
+  }
+}
+async function loadSubject(id){
+  const entry=catalog.subjects.find(s=>s.id===id);
+  if(!entry) throw new Error('科目が見つかりません');
+  subject=await fetch(entry.dataFile,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`${entry.title}の問題データを取得できません`);return r.json()});
+  activeSubjectId=id;
+  localStorage.setItem('study-platform-active-subject',id);
+  renderAll();
+}
+function showView(id){
+  ['study','quiz','result','subjects','analysis','materials','settings'].forEach(v=>$('#'+v)?.classList.toggle('hidden',v!==id));
+  $$('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===id));
+  if(id==='analysis') renderAnalysis();
+  if(id==='materials') renderMaterials();
+  if(id==='subjects') renderSubjects();
+}
+function renderAll(){
+  renderStudy();
+  renderSubjects();
+  renderAnalysis();
+  renderMaterials();
+  $('#versionLabel').textContent=`Platform ${APP_VERSION} / ${subject.title} ${subject.version||''}`;
+}
+function renderStudy(){
+  const sp=subjectProgress();
+  const total=subject.questions.length;
+  const attempted=subject.questions.filter(q=>(sp.items[q.id]?.attempts||0)>0).length;
+  const wrong=subject.questions.filter(q=>(sp.items[q.id]?.wrong||0)>0 && sp.items[q.id]?.lastResult!=='correct').length;
+  $('#subjectSubtitle').textContent=`${subject.title}：${subject.description||''}`;
+  $('#totalQuestions').textContent=total;
+  $('#unansweredQuestions').textContent=total-attempted;
+  $('#wrongQuestions').textContent=wrong;
+  $('#overallRate').textContent=sp.attempts?`${Math.round(sp.correct/sp.attempts*100)}%`:'-';
+  updateAvailability();
+}
+function eligibleQuestions(){
+  const scope=$('#scope').value;
+  const sp=subjectProgress();
+  return subject.questions.filter(q=>{
+    if(mode!=='all' && q.type!==mode) return false;
+    const p=sp.items[q.id];
+    if(scope==='all') return true;
+    if(scope==='unanswered') return !p || p.attempts===0;
+    if(scope==='wrong') return !!p && p.wrong>0 && p.lastResult!=='correct';
+    if(scope==='unknown') return !!p && p.unknown>0;
+    if(scope==='mastered') return !!p && p.lastResult==='correct';
+    return true;
+  });
+}
+function updateAvailability(){
+  if(!subject) return;
+  const n=eligibleQuestions().length;
+  $('#availability').textContent=`現在の条件で出題できる問題：${n}問`;
+  $('#startQuiz').disabled=n===0;
+}
+function startQuiz(customQuestions=null){
+  let pool=customQuestions || eligibleQuestions();
+  if(!pool.length){ alert('現在の条件に合う問題がありません。出題対象または問題形式を変更してください。'); return; }
+  const count=$('#count').value;
+  quiz=shuffle(pool).slice(0,count==='all'?pool.length:Number(count));
+  quizIndex=0; quizScore=0; sessionWrong=[];
+  showView('quiz'); renderQuestion();
+}
+function renderQuestion(){
+  answered=false;
+  const q=quiz[quizIndex];
+  $('#quizCounter').textContent=`${quizIndex+1} / ${quiz.length}`;
+  $('#quizScore').textContent=`正解 ${quizScore}`;
+  $('#quizProgress').style.width=`${quizIndex/quiz.length*100}%`;
+  $('#questionType').textContent=questionTypeName(q.type);
+  $('#questionText').textContent=q.q;
+  $('#feedback').classList.add('hidden');
+  $('#submitAnswer').classList.remove('hidden');
+  $('#nextQuestion').classList.add('hidden');
+  const area=$('#answerArea'); area.innerHTML='';
+  if(q.type==='fill'){
+    area.innerHTML='<input id="fillAnswer" class="field" autocomplete="off" placeholder="答えを入力"><button class="choice unknown" type="button">わからない</button>';
+    area.querySelector('.unknown').onclick=()=>{ $('#fillAnswer').value='__UNKNOWN__'; checkAnswer(); };
+    setTimeout(()=>$('#fillAnswer')?.focus(),50);
+  }else{
+    const options=q.type==='tf'?['○','×']:q.options;
+    options.forEach((text,index)=>{
+      const b=document.createElement('button');
+      b.className='choice';
+      b.textContent=q.type==='mcq'?`${index+1}. ${text}`:text;
+      b.dataset.value=String(index);
+      b.onclick=()=>{area.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')};
+      area.appendChild(b);
+    });
+    const unknown=document.createElement('button');
+    unknown.className='choice'; unknown.textContent='わからない'; unknown.dataset.value='unknown';
+    unknown.onclick=()=>{area.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));unknown.classList.add('selected')};
+    area.appendChild(unknown);
+  }
+}
+function checkAnswer(){
+  if(answered) return;
+  const q=quiz[quizIndex];
+  let correct=false, unknown=false;
+  if(q.type==='fill'){
+    const input=$('#fillAnswer');
+    if(!input.value.trim()) return alert('答えを入力するか、「わからない」を選んでください。');
+    unknown=input.value==='__UNKNOWN__';
+    const accepted=[q.answer,...(q.aliases||[])].map(normalize);
+    correct=!unknown && accepted.includes(normalize(input.value));
+  }else{
+    const selected=$('#answerArea .selected');
+    if(!selected) return alert('選択肢を選んでください。');
+    unknown=selected.dataset.value==='unknown';
+    if(!unknown){
+      const value=Number(selected.dataset.value);
+      correct=q.type==='tf' ? value===(q.answer?0:1) : value===q.answer;
+    }
+  }
+  answered=true;
+  const sp=subjectProgress(), ip=itemProgress(q.id);
+  sp.attempts++; ip.attempts++; ip.lastAnsweredAt=new Date().toISOString();
+  if(correct){
+    quizScore++; sp.correct++; ip.correct++; ip.lastResult='correct';
+  }else{
+    ip.wrong++; ip.lastResult=unknown?'unknown':'wrong';
+    if(unknown) ip.unknown++;
+    sessionWrong.push(q);
+  }
+  saveProgress();
+  renderStudy();
+
+  const source=q.source||{};
+  const link=source.url ? `<a href="${escapeAttr(source.url)}${source.pageTarget?`#page=${source.pageTarget}`:''}" target="_blank" rel="noopener">資料を開く</a>` : `<p class="small muted">資料リンクは未設定です。手元の資料から該当ファイル・ページを開いてください。</p>`;
+  $('#feedback').innerHTML=`
+    <b class="${correct?'good':'bad'}">${correct?'正解':'不正解'}</b>
+    ${correct?'':`<p><b>正解：</b>${escapeHtml(answerLabel(q))}</p>`}
+    <p>${escapeHtml(q.explanation||'')}</p>
+    <div class="source">
+      <b>復習する資料</b><br>
+      ${escapeHtml(source.displayFile||source.file||'資料未設定')}<br>
+      <b>PDF p.${escapeHtml(source.pages||'未設定')}</b><br>
+      <span class="small">${escapeHtml(source.topic||'')}</span>
+      ${link}
+    </div>`;
+  $('#feedback').classList.remove('hidden');
+  $('#submitAnswer').classList.add('hidden');
+  $('#nextQuestion').classList.remove('hidden');
+}
+function nextQuestion(){
+  quizIndex++;
+  if(quizIndex>=quiz.length) finishQuiz(); else renderQuestion();
+}
+function finishQuiz(){
+  showView('result');
+  $('#resultScore').textContent=`${quizScore}/${quiz.length}`;
+  $('#resultRate').textContent=`${Math.round(quizScore/quiz.length*100)}%`;
+  $('#resultWrong').textContent=sessionWrong.length;
+  const grouped={};
+  sessionWrong.forEach(q=>{const k=sourceKey(q); grouped[k]=(grouped[k]||0)+1});
+  $('#resultSources').textContent=Object.keys(grouped).length;
+  $('#resultReview').innerHTML=sessionWrong.length
+    ? '<h2>今回の復習先</h2>'+Object.entries(grouped).sort((a,b)=>b[1]-a[1]).map(([key,n])=>{
+        const [file,pages,topic]=key.split('｜');
+        return `<div class="row"><b>${escapeHtml(file)}</b> <span class="tag">p.${escapeHtml(pages)}</span><br><span class="small">${escapeHtml(topic)}</span><br><span class="bad">${n}問で誤答</span></div>`;
+      }).join('')
+    : '<div class="empty">全問正解です。</div>';
+  $('#retryWrong').disabled=sessionWrong.length===0;
+}
+function renderSubjects(){
+  if(!catalog) return;
+  $('#subjectList').innerHTML=catalog.subjects.filter(s=>s.enabled!==false).map(entry=>{
+    const isActive=entry.id===activeSubjectId;
+    const p=progress.subjects[entry.id]||{attempts:0,correct:0};
+    const rate=p.attempts?`${Math.round(p.correct/p.attempts*100)}%`:'未学習';
+    return `<div class="subject-card ${isActive?'active':''}">
+      <h3>${escapeHtml(entry.title)}</h3><p class="small muted">${escapeHtml(entry.description||'')}</p>
+      <p><span class="tag">${rate}</span></p>
+      <button class="${isActive?'ghost':'secondary'} subject-select" data-id="${escapeAttr(entry.id)}" ${isActive?'disabled':''}>${isActive?'選択中':'この科目を開く'}</button>
+    </div>`;
+  }).join('');
+  $$('.subject-select').forEach(b=>b.onclick=async()=>{await loadSubject(b.dataset.id);showView('study')});
+}
+function renderAnalysis(){
+  if(!subject) return;
+  const sp=subjectProgress();
+  const rows=subject.questions.map(q=>({q,p:sp.items[q.id]||{attempts:0,wrong:0,unknown:0,lastResult:null}}))
+    .filter(x=>x.p.wrong>0||x.p.unknown>0)
+    .sort((a,b)=>(b.p.wrong+b.p.unknown)-(a.p.wrong+a.p.unknown));
+  $('#analysisList').innerHTML=rows.length?rows.map(({q,p})=>`
+    <div class="row">
+      <b>${escapeHtml(q.q)}</b><br>
+      <span class="tag">誤答 ${p.wrong}回</span><span class="tag">わからない ${p.unknown}回</span><span class="tag">${escapeHtml(questionTypeName(q.type))}</span><br>
+      <span class="small muted">${escapeHtml(q.source?.displayFile||'資料未設定')} p.${escapeHtml(q.source?.pages||'未設定')}</span>
+    </div>`).join(''):'<div class="empty">苦手問題はまだ記録されていません。</div>';
+}
+function renderMaterials(){
+  if(!subject) return;
+  const sp=subjectProgress(), groups={};
+  subject.questions.forEach(q=>{
+    const key=sourceKey(q);
+    if(!groups[key]) groups[key]={questions:0,wrong:0,unknown:0,url:q.source?.url||null,pageTarget:q.source?.pageTarget||null};
+    groups[key].questions++;
+    const p=sp.items[q.id];
+    groups[key].wrong+=p?.wrong||0; groups[key].unknown+=p?.unknown||0;
+  });
+  const rows=Object.entries(groups).sort((a,b)=>(b[1].wrong+b[1].unknown)-(a[1].wrong+a[1].unknown));
+  const max=Math.max(1,...rows.map(([,v])=>v.wrong+v.unknown));
+  $('#materialsList').innerHTML=rows.map(([key,v])=>{
+    const [file,pages,topic]=key.split('｜');
+    const score=v.wrong+v.unknown;
+    const link=v.url?`<a href="${escapeAttr(v.url)}${v.pageTarget?`#page=${v.pageTarget}`:''}" target="_blank" rel="noopener">資料を開く</a>`:'';
+    return `<div class="row"><b>${escapeHtml(file)}</b> <span class="tag">p.${escapeHtml(pages)}</span><br>
+      <span class="small">${escapeHtml(topic)}</span>
+      <p class="${score?'bad':'muted'}">誤答 ${v.wrong}回・わからない ${v.unknown}回（関連 ${v.questions}問）</p>
+      <div class="bar"><div style="width:${score/max*100}%"></div></div>${link}</div>`;
+  }).join('');
+}
+function exportProgress(){
+  const blob=new Blob([JSON.stringify(progress,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`study-platform-progress-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href);
+}
+function importProgress(file){
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const data=JSON.parse(reader.result);
+      if(!data || typeof data!=='object' || !data.subjects) throw new Error('形式が正しくありません');
+      progress=data;saveProgress();renderAll();alert('学習記録を読み込みました。');
+    }catch(e){alert(`読み込みに失敗しました：${e.message}`)}
+  };
+  reader.readAsText(file);
+}
+function resetCurrentSubject(){
+  if(!confirm(`${subject.title}の学習記録をすべて削除しますか？`)) return;
+  delete progress.subjects[subject.id];saveProgress();renderAll();
+}
+function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function escapeAttr(value){return escapeHtml(value)}
+
+$$('.tab').forEach(b=>b.onclick=()=>showView(b.dataset.view));
+$$('.mode').forEach(b=>b.onclick=()=>{
+  $$('.mode').forEach(x=>x.classList.remove('active-mode','primary'));
+  b.classList.add('active-mode','primary'); mode=b.dataset.mode; updateAvailability();
+});
+$('#scope').onchange=updateAvailability;
+$('#count').onchange=updateAvailability;
+$('#startQuiz').onclick=()=>startQuiz();
+$('#submitAnswer').onclick=checkAnswer;
+$('#nextQuestion').onclick=nextQuestion;
+$('#quitQuiz').onclick=()=>{if(confirm('今回の途中結果を終了しますか？'))showView('study')};
+$('#retryWrong').onclick=()=>sessionWrong.length&&startQuiz(sessionWrong);
+$('#backHome').onclick=()=>showView('study');
+$('#exportProgress').onclick=exportProgress;
+$('#importProgress').onclick=()=>$('#importFile').click();
+$('#importFile').onchange=e=>e.target.files[0]&&importProgress(e.target.files[0]);
+$('#resetProgress').onclick=resetCurrentSubject;
+document.addEventListener('keydown',e=>{
+  if(!$('#quiz').classList.contains('hidden') && e.key==='Enter'){
+    if(answered) nextQuestion(); else checkAnswer();
+  }
+});
+initialize();
+</script>
+</body>
+</html>

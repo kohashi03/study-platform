@@ -1,0 +1,2992 @@
+{
+  "schemaVersion": 1,
+  "id": "educational-organization",
+  "title": "教育組織論",
+  "shortTitle": "教育組織論",
+  "description": "教育法規、教育行政、教育課程、教員制度、学校経営などを扱う試験対策問題集",
+  "version": "1.0.0",
+  "updatedAt": "2026-07-21",
+  "questionCount": 147,
+  "questions": [
+    {
+      "type": "fill",
+      "q": "（　　　）は、国・地方公共団体が責任を負う教育である。",
+      "answer": "公教育",
+      "explanation": "国・地方公共団体が責任を負う教育を指します。",
+      "id": "q1",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "保護者に課される就学義務を（　　　）という。",
+      "answer": "義務性",
+      "explanation": "就学義務は子ども本人ではなく、保護者に課されます。",
+      "id": "q2",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "4",
+        "topic": "復習：公教育・教育行政",
+        "pageTarget": 4,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教育の基本理念を定める法律は（　　　）である。",
+      "answer": "教育基本法",
+      "explanation": "教育の理念や目的を定める基本法です。",
+      "id": "q3",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学校制度を定める法律は（　　　）である。",
+      "answer": "学校教育法",
+      "explanation": "学校の種類や制度について定める法律です。",
+      "id": "q4",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "地方教育行政の組織・運営を定める法律は（　　　）である。",
+      "answer": "地教行法",
+      "aliases": [
+        "地方教育行政の組織及び運営に関する法律"
+      ],
+      "explanation": "正式名称は「地方教育行政の組織及び運営に関する法律」です。",
+      "id": "q5",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "4",
+        "topic": "復習：公教育・教育行政",
+        "pageTarget": 4,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教育課程を編成する主体は（　　　）である。",
+      "answer": "各学校",
+      "explanation": "教育課程は各学校が編成します。",
+      "id": "q6",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教育課程編成の権限を持つのは（　　　）である。",
+      "answer": "校長",
+      "explanation": "各学校での教育課程編成について、校長が権限と責任を持ちます。",
+      "id": "q7",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教育課程の基準を示すものは（　　　）である。",
+      "answer": "学習指導要領",
+      "explanation": "学校が教育課程を編成する際の基準です。",
+      "id": "q8",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学習指導要領に法的拘束力があるとする考え方は（　　　）説。",
+      "answer": "基準",
+      "aliases": [
+        "基準説"
+      ],
+      "explanation": "学習指導要領に法的拘束力を認める立場です。",
+      "id": "q9",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "12〜20",
+        "topic": "学習指導要領をめぐる議論",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学習指導要領は助言と考える立場は（　　　）説。",
+      "answer": "指導助言",
+      "aliases": [
+        "指導助言説"
+      ],
+      "explanation": "学習指導要領を助言・参考とみる立場です。",
+      "id": "q10",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学習指導要領を大綱的基準と示した判例は（　　　）事件。",
+      "answer": "旭川学力テスト",
+      "aliases": [
+        "旭川学力テスト事件"
+      ],
+      "explanation": "旭川学力テスト事件では、学習指導要領は大綱的基準と位置付けられました。",
+      "id": "q11",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "16〜20",
+        "topic": "学習指導要領の法的拘束力",
+        "pageTarget": 16,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "新学習指導要領の柱の一つは『主体的・対話的で（　　　）学び』である。",
+      "answer": "深い",
+      "explanation": "「主体的・対話的で深い学び」が重視されています。",
+      "id": "q12",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "21〜24",
+        "topic": "改革動向",
+        "pageTarget": 21,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "不登校児童生徒への教育機会を保障する法律は（　　　）。",
+      "answer": "普通教育機会確保法",
+      "explanation": "不登校児童生徒などの教育機会の確保を目的とする法律です。",
+      "id": "q13",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "不登校特例校の新名称は（　　　）。",
+      "answer": "学びの多様化学校",
+      "explanation": "不登校特例校は「学びの多様化学校」と呼ばれます。",
+      "id": "q14",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "28〜34",
+        "topic": "教育課程の特例",
+        "pageTarget": 28,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教員になるには（　　　）が必要である。",
+      "answer": "教員免許状",
+      "explanation": "教員免許状主義により、原則として免許状が必要です。",
+      "id": "q15",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "6〜16／20〜27",
+        "topic": "第7回 教員養成・研修",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "普通免許状は専修・一種・（　　　）の3種類。",
+      "answer": "二種",
+      "explanation": "普通免許状は専修・一種・二種の3種類です。",
+      "id": "q16",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "6〜16／20〜27",
+        "topic": "第7回 教員養成・研修",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "大学で教員養成を行う制度を（　　　）制という。",
+      "answer": "開放",
+      "aliases": [
+        "開放制"
+      ],
+      "explanation": "特定の教員養成機関に限らず、大学で教員養成を行う制度です。",
+      "id": "q17",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "6〜16／20〜27",
+        "topic": "第7回 教員養成・研修",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学校自身が行う評価を（　　　）という。",
+      "answer": "自己評価",
+      "explanation": "学校が自らの教育活動や学校運営を評価します。",
+      "id": "q18",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "保護者等が参加する評価を（　　　）評価という。",
+      "answer": "学校関係者",
+      "aliases": [
+        "学校関係者評価"
+      ],
+      "explanation": "保護者や地域住民などの学校関係者が行う評価です。",
+      "id": "q19",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "外部専門家による評価を（　　　）評価という。",
+      "answer": "第三者",
+      "aliases": [
+        "第三者評価"
+      ],
+      "explanation": "学校と直接の関係を持たない外部の専門家などが行います。",
+      "id": "q20",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学校改善サイクルはP・D・C・（　　　）。",
+      "answer": "A",
+      "aliases": [
+        "Act",
+        "A(Act)",
+        "アクト"
+      ],
+      "explanation": "PDCAは Plan・Do・Check・Act の順です。",
+      "id": "q21",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "9〜20",
+        "topic": "学校経営・学校評価",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教科書を審査するのは文部科学大臣による（　　　）。",
+      "answer": "教科書検定",
+      "explanation": "教科書検定は文部科学大臣が行います。",
+      "id": "q22",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "公立学校の教科書を決定するのは（　　　）。",
+      "answer": "教育委員会",
+      "explanation": "公立学校の教科書採択は教育委員会が行います。",
+      "id": "q23",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "八重山教科書問題は（　　　）制度が争点となった。",
+      "answer": "共同採択",
+      "aliases": [
+        "共同採択制度"
+      ],
+      "explanation": "共同採択地区における教科書採択が争点となりました。",
+      "id": "q24",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教科書不使用が争われた判例は（　　　）高校事件。",
+      "answer": "伝習館",
+      "aliases": [
+        "伝習館高校事件"
+      ],
+      "explanation": "伝習館高校事件では、教科書不使用などが争われました。",
+      "id": "q25",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "1〜2",
+        "topic": "伝習館高校事件",
+        "pageTarget": 1,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教員給与の特別措置法を略して（　　　）という。",
+      "answer": "給特法",
+      "explanation": "公立学校教員の給与に関する特別措置を定める法律の通称です。",
+      "id": "q26",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "残業代の代わりに支給されるのは（　　　）。",
+      "answer": "教職調整額",
+      "explanation": "時間外勤務手当の代わりとして一律に支給されます。",
+      "id": "q27",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "時間外勤務を命じられる業務は超勤（　　　）項目。",
+      "answer": "4",
+      "aliases": [
+        "四"
+      ],
+      "explanation": "原則として時間外勤務を命じられるのは超勤4項目です。",
+      "id": "q28",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教員の勤務時間管理の指標を（　　　）時間という。",
+      "answer": "在校等",
+      "aliases": [
+        "在校等時間"
+      ],
+      "explanation": "在校等時間を用いて勤務時間を把握します。",
+      "id": "q29",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "在校等時間の上限目安は月（　　　）時間・年360時間。",
+      "answer": "45",
+      "aliases": [
+        "四十五"
+      ],
+      "explanation": "上限の目安は月45時間・年360時間です。",
+      "id": "q30",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教員調査の国際調査は（　　　）2024。",
+      "answer": "TALIS",
+      "aliases": [
+        "talis"
+      ],
+      "explanation": "OECDによる国際教員指導環境調査です。",
+      "id": "q31",
+      "source": {
+        "file": "教育組織論第1回.pdf",
+        "pages": "6〜12",
+        "topic": "基礎事項",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第1回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-01.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "2025年改正給特法で新設された職は（　　　）教諭。",
+      "answer": "主務",
+      "aliases": [
+        "主務教諭"
+      ],
+      "explanation": "2025年改正給特法で主務教諭が新設されました。",
+      "id": "q32",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "公教育には私立学校も含まれる。",
+      "answer": true,
+      "explanation": "公教育は設置者が国公立か私立かではなく、公的に保障される教育を指すため、私立学校も含まれます。",
+      "id": "q33",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "4",
+        "topic": "復習：公教育・教育行政",
+        "pageTarget": 4,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "就学義務は子ども本人に課される。",
+      "answer": false,
+      "explanation": "就学義務は子ども本人ではなく保護者に課されます。",
+      "id": "q34",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "4",
+        "topic": "復習：公教育・教育行政",
+        "pageTarget": 4,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教育基本法は教育の基本理念を定める法律である。",
+      "answer": true,
+      "explanation": "教育基本法は教育の理念や目的などを定めます。",
+      "id": "q35",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "8",
+        "topic": "関係法令",
+        "pageTarget": 8,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "学校教育法は教育委員会制度を定める法律である。",
+      "answer": false,
+      "explanation": "学校教育法は学校制度を定めます。教育委員会制度の根拠は主に地教行法です。",
+      "id": "q36",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "23前後",
+        "topic": "教育委員会制度",
+        "pageTarget": 23,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教育課程は各学校が編成する。",
+      "answer": true,
+      "explanation": "各学校が学習指導要領などを基準として編成します。",
+      "id": "q37",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教育課程編成の権限は校長が持つ。",
+      "answer": true,
+      "explanation": "校長が教育課程編成について権限と責任を持ちます。",
+      "id": "q38",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "学習指導要領は教育課程編成の基準である。",
+      "answer": true,
+      "explanation": "各学校が教育課程を編成する際の基準です。",
+      "id": "q39",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "基準説は学習指導要領に法的拘束力を認めない。",
+      "answer": false,
+      "explanation": "基準説は学習指導要領に法的拘束力を認める立場です。",
+      "id": "q40",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "12〜20",
+        "topic": "学習指導要領をめぐる議論",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "指導助言説は学習指導要領を助言と考える。",
+      "answer": true,
+      "explanation": "学習指導要領を指導・助言として捉える立場です。",
+      "id": "q41",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "12〜20",
+        "topic": "学習指導要領をめぐる議論",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "旭川学力テスト事件では学習指導要領が大綱的基準と示された。",
+      "answer": true,
+      "explanation": "同事件では学習指導要領の性格が大綱的基準として示されました。",
+      "id": "q42",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "16〜20",
+        "topic": "学習指導要領の法的拘束力",
+        "pageTarget": 16,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "国家の教育権論は国家が教育内容を決定すると考える。",
+      "answer": true,
+      "explanation": "国家が教育内容決定の主体であると捉える立場です。",
+      "id": "q43",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "12〜20",
+        "topic": "学習指導要領をめぐる議論",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "国民の教育権論では国家が教育内容を全面的に決定する。",
+      "answer": false,
+      "explanation": "国民の教育権論は、教師・保護者・国民側の教育権を重視します。",
+      "id": "q44",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "12〜20",
+        "topic": "学習指導要領をめぐる議論",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "普通教育機会確保法は不登校児童生徒の教育機会を保障する。",
+      "answer": true,
+      "explanation": "不登校児童生徒などの教育機会の確保を目的とします。",
+      "id": "q45",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "28〜34",
+        "topic": "教育課程の特例",
+        "pageTarget": 28,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "学びの多様化学校は旧・不登校特例校である。",
+      "answer": true,
+      "explanation": "不登校特例校の現在の名称です。",
+      "id": "q46",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "28〜34",
+        "topic": "教育課程の特例",
+        "pageTarget": 28,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "普通免許状は一種類のみである。",
+      "answer": false,
+      "explanation": "普通免許状には専修・一種・二種があります。",
+      "id": "q47",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "6〜16／20〜27",
+        "topic": "第7回 教員養成・研修",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "開放制では大学で教員養成を行う。",
+      "answer": true,
+      "explanation": "多様な大学が教職課程を設置して教員養成を行います。",
+      "id": "q48",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "6〜16／20〜27",
+        "topic": "第7回 教員養成・研修",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "初任者研修は全教員が毎年受ける。",
+      "answer": false,
+      "explanation": "初任者研修は主に新任教員を対象とする法定研修です。",
+      "id": "q49",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "6〜16／20〜27",
+        "topic": "第7回 教員養成・研修",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "自己評価は学校自身が行う。",
+      "answer": true,
+      "explanation": "学校が自らの教育活動や学校運営を評価します。",
+      "id": "q50",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "9〜20",
+        "topic": "学校経営・学校評価",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "学校関係者評価は外部専門家のみで実施する。",
+      "answer": false,
+      "explanation": "学校関係者評価は保護者や地域住民などが参加します。外部専門家によるものは第三者評価です。",
+      "id": "q51",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "9〜20",
+        "topic": "学校経営・学校評価",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "PDCAのCはCheckである。",
+      "answer": true,
+      "explanation": "PDCAは Plan・Do・Check・Act です。",
+      "id": "q52",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "9〜20",
+        "topic": "学校経営・学校評価",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教科書検定は教育委員会が行う。",
+      "answer": false,
+      "explanation": "教科書検定は文部科学大臣が行います。",
+      "id": "q53",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教科書採択は公立学校では教育委員会が行う。",
+      "answer": true,
+      "explanation": "公立学校の採択権者は教育委員会です。",
+      "id": "q54",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "共同採択地区では異なる教科書を自由に採択できる。",
+      "answer": false,
+      "explanation": "共同採択地区では原則として同一の教科書を採択します。",
+      "id": "q55",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "八重山教科書問題は共同採択制度が争点となった。",
+      "answer": true,
+      "explanation": "共同採択地区での教科書採択をめぐる問題でした。",
+      "id": "q56",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "伝習館高校事件は教科書不使用が争点となった。",
+      "answer": true,
+      "explanation": "教科書不使用や学習指導要領の法的拘束力などが争われました。",
+      "id": "q57",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "1〜2",
+        "topic": "伝習館高校事件",
+        "pageTarget": 1,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "給特法では一般公務員と同じ残業代制度が適用される。",
+      "answer": false,
+      "explanation": "給特法では原則として時間外勤務手当ではなく教職調整額が支給されます。",
+      "id": "q58",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教職調整額は残業代の代替として支給される。",
+      "answer": true,
+      "explanation": "時間外勤務手当に代わる特別な給与措置です。",
+      "id": "q59",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "超勤4項目以外は原則として時間外勤務命令ができない。",
+      "answer": true,
+      "explanation": "原則として時間外勤務命令が可能なのは超勤4項目です。",
+      "id": "q60",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "在校等時間の上限目安は月45時間である。",
+      "answer": true,
+      "explanation": "上限の目安は月45時間・年360時間です。",
+      "id": "q61",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "TALIS2024はOECDによる国際調査である。",
+      "answer": true,
+      "explanation": "OECDが実施する国際教員指導環境調査です。",
+      "id": "q62",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "24〜25",
+        "topic": "TALIS 2024",
+        "pageTarget": 24,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "2025年改正給特法で主務教諭が創設された。",
+      "answer": true,
+      "explanation": "改正によって新たな職として主務教諭が設けられました。",
+      "id": "q63",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教科書検定と教科書採択は同じ意味である。",
+      "answer": false,
+      "explanation": "検定は教科書として適切かを審査すること、採択は使用する教科書を選ぶことです。",
+      "id": "q64",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教育委員会と学校運営協議会は同じ組織である。",
+      "answer": false,
+      "explanation": "教育委員会は行政機関、学校運営協議会は地域と学校が協働する仕組みです。",
+      "id": "q65",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "21〜30",
+        "topic": "学校参加制度",
+        "pageTarget": 21,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "無償性とは授業料や教科書を無償とする考えである。",
+      "answer": true,
+      "explanation": "公教育の原理の一つとして、授業料や教科書の無償が重視されます。",
+      "id": "q66",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "4",
+        "topic": "復習：公教育・教育行政",
+        "pageTarget": 4,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教育行政の目的は教育条件を整備することである。",
+      "answer": true,
+      "explanation": "教育活動を支える制度・人員・施設などの条件整備が重要な役割です。",
+      "id": "q67",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "4",
+        "topic": "復習：公教育・教育行政",
+        "pageTarget": 4,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "教育基本法について正しいものはどれか。",
+      "options": [
+        "学校制度を定める法律",
+        "教育の基本理念を定める法律",
+        "教育委員会制度のみを定める法律",
+        "教科書制度を定める法律"
+      ],
+      "answer": 1,
+      "explanation": "教育基本法は教育の基本理念や目的を定めます。",
+      "id": "q68",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "8",
+        "topic": "関係法令",
+        "pageTarget": 8,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "教育課程を編成する主体はどれか。",
+      "options": [
+        "文部科学省",
+        "教育委員会",
+        "各学校",
+        "校長"
+      ],
+      "answer": 2,
+      "explanation": "教育課程の編成主体は各学校です。",
+      "id": "q69",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "教育課程編成の権限を持つ者は誰か。",
+      "options": [
+        "校長",
+        "教頭",
+        "教育長",
+        "教育委員会"
+      ],
+      "answer": 0,
+      "explanation": "各学校の教育課程編成について、校長が権限と責任を持ちます。",
+      "id": "q70",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "学習指導要領の位置付けとして正しいものはどれか。",
+      "options": [
+        "教科書",
+        "教育課程の基準",
+        "学校評価基準",
+        "法律"
+      ],
+      "answer": 1,
+      "explanation": "学習指導要領は教育課程編成の基準です。",
+      "id": "q71",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "6〜10",
+        "topic": "教育課程行政の構造",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "学習指導要領に法的拘束力を認める考えはどれか。",
+      "options": [
+        "国民の教育権論",
+        "指導助言説",
+        "基準説",
+        "開放制"
+      ],
+      "answer": 2,
+      "explanation": "基準説は学習指導要領に法的拘束力を認めます。",
+      "id": "q72",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "12〜20",
+        "topic": "学習指導要領をめぐる議論",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "旭川学力テスト事件で示された内容はどれか。",
+      "options": [
+        "私教育の自由",
+        "大綱的基準",
+        "教員免許制度",
+        "学校評価制度"
+      ],
+      "answer": 1,
+      "explanation": "学習指導要領は大綱的基準と示されました。",
+      "id": "q73",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "16〜20",
+        "topic": "学習指導要領の法的拘束力",
+        "pageTarget": 16,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "不登校特例校の現在の名称はどれか。",
+      "options": [
+        "特別支援学校",
+        "夜間中学",
+        "学びの多様化学校",
+        "義務教育学校"
+      ],
+      "answer": 2,
+      "explanation": "不登校特例校は「学びの多様化学校」と呼ばれます。",
+      "id": "q74",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "28〜34",
+        "topic": "教育課程の特例",
+        "pageTarget": 28,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "普通免許状の種類として誤っているものはどれか。",
+      "options": [
+        "専修",
+        "一種",
+        "二種",
+        "特級"
+      ],
+      "answer": 3,
+      "explanation": "普通免許状は専修・一種・二種であり、「特級」はありません。",
+      "id": "q75",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "6〜16／20〜27",
+        "topic": "第7回 教員養成・研修",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "学校自身が実施する評価はどれか。",
+      "options": [
+        "第三者評価",
+        "学校関係者評価",
+        "自己評価",
+        "外部評価"
+      ],
+      "answer": 2,
+      "explanation": "学校自身が行うものは自己評価です。",
+      "id": "q76",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "9〜20",
+        "topic": "学校経営・学校評価",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "PDCAサイクルのCはどれか。",
+      "options": [
+        "Create",
+        "Check",
+        "Continue",
+        "Change"
+      ],
+      "answer": 1,
+      "explanation": "PDCAは Plan・Do・Check・Act です。",
+      "id": "q77",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "9〜20",
+        "topic": "学校経営・学校評価",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "教科書検定を行うのは誰か。",
+      "options": [
+        "教育委員会",
+        "校長",
+        "文部科学大臣",
+        "学校"
+      ],
+      "answer": 2,
+      "explanation": "教科書検定は文部科学大臣が行います。",
+      "id": "q78",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "公立学校の教科書採択を行うのは誰か。",
+      "options": [
+        "文部科学大臣",
+        "教育委員会",
+        "校長",
+        "教員"
+      ],
+      "answer": 1,
+      "explanation": "公立学校の教科書採択は教育委員会が行います。",
+      "id": "q79",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "八重山教科書問題で争点となった制度はどれか。",
+      "options": [
+        "教員免許制度",
+        "共同採択制度",
+        "学校評価制度",
+        "初任者研修"
+      ],
+      "answer": 1,
+      "explanation": "共同採択地区での採択をめぐる問題でした。",
+      "id": "q80",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "31〜38",
+        "topic": "教科書行政",
+        "pageTarget": 31,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "給特法の内容として正しいものはどれか。",
+      "options": [
+        "残業代を時間ごとに支払う",
+        "教職調整額を支給する",
+        "教員は残業禁止",
+        "休日勤務は禁止"
+      ],
+      "answer": 1,
+      "explanation": "給特法では時間外勤務手当の代わりとして教職調整額が支給されます。",
+      "id": "q81",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "超勤4項目の説明として正しいものはどれか。",
+      "options": [
+        "全業務で時間外命令可能",
+        "原則この4項目のみ時間外命令可能",
+        "時間外勤務は禁止",
+        "校長のみ対象"
+      ],
+      "answer": 1,
+      "explanation": "原則として時間外勤務命令ができるのは超勤4項目です。",
+      "id": "q82",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "在校等時間の上限目安（月）はどれか。",
+      "options": [
+        "20時間",
+        "30時間",
+        "45時間",
+        "60時間"
+      ],
+      "answer": 2,
+      "explanation": "上限の目安は月45時間です。",
+      "id": "q83",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "TALIS2024について正しいものはどれか。",
+      "options": [
+        "国内のみの調査",
+        "OECDによる国際調査",
+        "文科省独自調査",
+        "教員免許試験"
+      ],
+      "answer": 1,
+      "explanation": "TALISはOECDによる国際教員指導環境調査です。",
+      "id": "q84",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "24〜25",
+        "topic": "TALIS 2024",
+        "pageTarget": 24,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "2025年改正給特法で新設された職はどれか。",
+      "options": [
+        "主幹教諭",
+        "指導教諭",
+        "主務教諭",
+        "特任教諭"
+      ],
+      "answer": 2,
+      "explanation": "2025年改正で主務教諭が新設されました。",
+      "id": "q85",
+      "source": {
+        "file": "教育組織論第10回.pdf",
+        "pages": "10〜18",
+        "topic": "教員の働き方改革",
+        "pageTarget": 10,
+        "displayFile": "教育組織論第10回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-10.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "教育委員会の役割として最も適切なのはどれか。",
+      "options": [
+        "教科書執筆",
+        "学校の設置・管理",
+        "教員養成",
+        "入試問題作成"
+      ],
+      "answer": 1,
+      "explanation": "教育委員会は公立学校の設置・管理などを担います。",
+      "id": "q86",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "23前後",
+        "topic": "教育委員会制度",
+        "pageTarget": 23,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "普通教育機会確保法の目的はどれか。",
+      "options": [
+        "教員給与改善",
+        "不登校児童生徒への教育機会保障",
+        "私学助成",
+        "教科書検定"
+      ],
+      "answer": 1,
+      "explanation": "不登校児童生徒などの教育機会の確保を目的とします。",
+      "id": "q87",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "28〜34",
+        "topic": "教育課程の特例",
+        "pageTarget": 28,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学校教育法第1条に列挙される学校を一般に（　　　）という。",
+      "answer": "一条校",
+      "explanation": "幼稚園、小学校、中学校、義務教育学校、高等学校、中等教育学校、特別支援学校、大学、高等専門学校が該当します。",
+      "id": "q88",
+      "source": {
+        "file": "教育組織論第２回.pdf",
+        "pages": "5",
+        "topic": "学校制度・一条校",
+        "pageTarget": 5,
+        "displayFile": "教育組織論第２回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-02.pdf"
+      },
+      "aliases": [
+        "学校教育法第一条校"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "行政活動には法律上の根拠が必要だとする考えを「法律の（　　　）」という。",
+      "answer": "留保",
+      "explanation": "法律の留保は、行政が活動する際に事前の法律上の根拠を求める考えです。教育行政では教育行政の法律主義につながります。",
+      "id": "q89",
+      "source": {
+        "file": "教育組織論第２回.pdf",
+        "pages": "17",
+        "topic": "教育行政の法律主義",
+        "pageTarget": 17,
+        "displayFile": "教育組織論第２回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-02.pdf"
+      },
+      "aliases": [
+        "法律の留保"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "戦後教育行政改革の三原則は、民主化・地方分権・一般行政からの（　　　）である。",
+      "answer": "独立",
+      "explanation": "戦前の中央集権的教育行政への反省から、教育行政の民主化、地方分権、一般行政からの相対的独立が重視されました。",
+      "id": "q90",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "16〜18",
+        "topic": "教育委員会制度の成立",
+        "pageTarget": 16,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "aliases": [
+        "相対的独立",
+        "独立性"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "現行の教育委員会は、教育長と教育（　　　）によって構成される合議制の執行機関である。",
+      "answer": "委員",
+      "explanation": "教育委員会は教育長と複数の教育委員から構成され、多様な民意を教育行政に反映する合議制の機関です。",
+      "id": "q91",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "27",
+        "topic": "現行の教育委員会制度",
+        "pageTarget": 27,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教育課程編成の基準には、学習指導要領などの国家基準と、教育委員会規則などの（　　　）基準がある。",
+      "answer": "地方",
+      "explanation": "各学校は国家基準だけでなく、設置者である教育委員会が定める地方基準にも従って教育課程を編成します。",
+      "id": "q92",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "8〜9",
+        "topic": "国家基準と地方基準",
+        "pageTarget": 8,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "1947年の学習指導要領は「学習指導要領一般編（　　　）」とされ、手引き書的性格を持っていた。",
+      "answer": "試案",
+      "explanation": "戦後直後の学習指導要領は試案と明記され、教師への指導・助言、参考資料としての性格が強いものでした。",
+      "id": "q93",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "13",
+        "topic": "学習指導要領の歴史",
+        "pageTarget": 13,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "aliases": [
+        "試案）",
+        "試案版"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "旭川学力テスト事件最高裁判決は、国が教育内容を決定できる範囲を「必要かつ（　　　）と認められる範囲」とした。",
+      "answer": "相当",
+      "explanation": "最高裁は国にも教育内容決定権を認めましたが、無制限ではなく、必要かつ相当な範囲に限定しました。",
+      "id": "q94",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "17",
+        "topic": "旭川学力テスト事件",
+        "pageTarget": 17,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学校と社会が教育目標を共有する考えを「社会に（　　　）教育課程」という。",
+      "answer": "開かれた",
+      "explanation": "学校だけで教育課程を閉じず、よりよい社会づくりという目標を社会と共有する考えです。",
+      "id": "q95",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "19",
+        "topic": "近年の学習指導要領改革",
+        "pageTarget": 19,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "aliases": [
+        "開かれた教育課程"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学習指導要領に示される授業時数は、原則として（　　　）授業時数である。",
+      "answer": "標準",
+      "explanation": "標準授業時数は目安・基準であり、単純に最低時数と同義ではありません。現場では最低基準のように受け止められる問題も扱われました。",
+      "id": "q96",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "26〜29",
+        "topic": "授業時数",
+        "pageTarget": 26,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "aliases": [
+        "標準授業時数"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "普通教育機会確保法が制定されたのは（　　　）年である。",
+      "answer": "2016",
+      "explanation": "正式名称は「義務教育の段階における普通教育に相当する教育の機会の確保等に関する法律」で、2016年に制定されました。",
+      "id": "q97",
+      "source": {
+        "file": "教育組織論第5回.pdf",
+        "pages": "23",
+        "topic": "普通教育機会確保法",
+        "pageTarget": 23,
+        "displayFile": "教育組織論第5回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-05.pdf"
+      },
+      "aliases": [
+        "平成28",
+        "平成28年"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "保護者の就学義務は、原則として子どもを学校教育法第1条の（　　　）に就学させる義務として制度化されている。",
+      "answer": "学校",
+      "explanation": "憲法は普通教育を受けさせる義務を定め、学校教育法はそれを原則として一条校への就学義務として具体化しています。",
+      "id": "q98",
+      "source": {
+        "file": "教育組織論第5回.pdf",
+        "pages": "16〜22",
+        "topic": "教育を受ける権利と就学義務",
+        "pageTarget": 16,
+        "displayFile": "教育組織論第5回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-05.pdf"
+      },
+      "aliases": [
+        "一条校",
+        "学校（一条校）"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "戦後の教員養成原則は「大学での養成」と「（　　　）制」である。",
+      "answer": "開放",
+      "explanation": "教員養成を大学で行い、特定の教員養成大学だけでなく幅広い大学に教職課程を開くことが戦後原則です。",
+      "id": "q99",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "7",
+        "topic": "戦後の教員養成原則",
+        "pageTarget": 7,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "aliases": [
+        "開放制"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "教員は相当する免許状を持たなければならないという原則を（　　　）主義という。",
+      "answer": "免許状",
+      "explanation": "教育職員免許法第3条を根拠とする原則で、学校種や教科に応じた免許状が必要です。",
+      "id": "q100",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "14",
+        "topic": "教員免許制度",
+        "pageTarget": 14,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "aliases": [
+        "免許状主義"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "優れた知識・経験を持つ社会人に、教育職員検定を経て授与される免許状は（　　　）免許状である。",
+      "answer": "特別",
+      "explanation": "特別免許状は社会人などの専門的知識・経験を学校教育に生かすための制度です。",
+      "id": "q101",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "15",
+        "topic": "免許状の種類",
+        "pageTarget": 15,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "aliases": [
+        "特別免許状"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "普通免許状を持つ者を採用できない場合に限り、原則3年間の期限付きで授与されるのは（　　　）免許状である。",
+      "answer": "臨時",
+      "explanation": "臨時免許状は人材確保が困難な場合の例外的制度で、特別免許状とは目的が異なります。",
+      "id": "q102",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "15〜16",
+        "topic": "臨時免許状",
+        "pageTarget": 15,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "aliases": [
+        "臨時免許状"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "初任者研修を1年を通じて実施する主体は、原則として都道府県（　　　）である。",
+      "answer": "教育委員会",
+      "explanation": "初任者研修は教育公務員特例法に基づく法定研修で、都道府県教育委員会等が実施します。",
+      "id": "q103",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "19",
+        "topic": "初任者研修",
+        "pageTarget": 19,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "aliases": [
+        "教委",
+        "都道府県教育委員会"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "学校運営上の仕事を教員が分担して受け持つ仕組みを（　　　）という。",
+      "answer": "校務分掌",
+      "explanation": "校務分掌は授業以外も含む学校運営の業務分担で、正規教員の学校運営上の責任を理解する鍵です。",
+      "id": "q104",
+      "source": {
+        "file": "教育組織論第7回 .pdf",
+        "pages": "9〜10",
+        "topic": "正規教員と校務分掌",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第7回 .pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-07.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "職務上知り得た秘密を漏らしてはならない義務を（　　　）義務という。",
+      "answer": "守秘",
+      "explanation": "守秘義務は身分上の義務であり、職を離れた後も問題となり得ます。",
+      "id": "q105",
+      "source": {
+        "file": "教育組織論第7回 .pdf",
+        "pages": "19〜21",
+        "topic": "教職員の服務",
+        "pageTarget": 19,
+        "displayFile": "教育組織論第7回 .pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-07.pdf"
+      },
+      "aliases": [
+        "守秘義務"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "住民基本台帳を基に市町村教育委員会が作成する、学齢児童生徒の名簿を（　　　）という。",
+      "answer": "学齢簿",
+      "explanation": "学齢簿には児童生徒、保護者、就学する学校などに関する事項が記録されます。",
+      "id": "q106",
+      "source": {
+        "file": "教育組織論第8回.pdf",
+        "pages": "11",
+        "topic": "児童・生徒の在学管理",
+        "pageTarget": 11,
+        "displayFile": "教育組織論第8回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-08.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "fill",
+      "q": "児童生徒の学籍や指導の過程・結果を記録し、外部に証明する文書を（　　　）という。",
+      "answer": "指導要録",
+      "explanation": "指導要録には学籍に関する記録と指導に関する記録があり、保存期間も異なります。",
+      "id": "q107",
+      "source": {
+        "file": "教育組織論第8回.pdf",
+        "pages": "12",
+        "topic": "指導要録",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第8回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-08.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "私教育とは、公的規制を受けず、教育する側が内容・方法を自由に決定し、私費で営む教育を指す。",
+      "answer": true,
+      "explanation": "授業では私教育を「私事としての教育」として、公教育と対比して整理しています。",
+      "id": "q108",
+      "source": {
+        "file": "教育組織論第２回.pdf",
+        "pages": "6〜7",
+        "topic": "私教育と公教育",
+        "pageTarget": 6,
+        "displayFile": "教育組織論第２回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-02.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教育基本法は日本国憲法より上位の法規である。",
+      "answer": false,
+      "explanation": "日本国憲法が最高法規であり、教育基本法は教育に関する基本法として準憲法的な位置づけを持つと説明されますが、憲法より上位ではありません。",
+      "id": "q109",
+      "source": {
+        "file": "教育組織論第２回.pdf",
+        "pages": "16〜20",
+        "topic": "教育法体系",
+        "pageTarget": 16,
+        "displayFile": "教育組織論第２回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-02.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "戦後の教育委員会制度は、戦前の中央集権的教育行政への反省から設けられた。",
+      "answer": true,
+      "explanation": "民主化・地方分権・一般行政からの相対的独立が、戦後改革の基本原則でした。",
+      "id": "q110",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "16〜18",
+        "topic": "教育委員会制度の成立",
+        "pageTarget": 16,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "現行の教育委員会は、教育長一人だけで意思決定する独任制の機関である。",
+      "answer": false,
+      "explanation": "教育委員会は教育長と教育委員からなる合議制の執行機関です。",
+      "id": "q111",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "27〜28",
+        "topic": "現行の教育委員会制度",
+        "pageTarget": 27,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "現行制度では教育長は首長が直接任命・罷免する。",
+      "answer": true,
+      "explanation": "現行制度では首長が議会の同意を得て教育長を任命し、責任体制の明確化が図られています。",
+      "id": "q112",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "27〜30",
+        "topic": "教育委員会と首長",
+        "pageTarget": 27,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教育課程を教育委員会へ届け出る制度では、教育委員会の事前同意が必ず必要である。",
+      "answer": false,
+      "explanation": "届出は手続的なもので、教育委員会の同意を前提としません。承認制なら内容の是非を審査し同意が必要です。",
+      "id": "q113",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "8〜9",
+        "topic": "地方基準と手続",
+        "pageTarget": 8,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "1947年の学習指導要領は、当初から現在と同じ告示として強い法的拘束力を持っていた。",
+      "answer": false,
+      "explanation": "1947年版は「試案」とされ、手引き書・参考資料的な性格でした。のちに告示化され、法的性格をめぐる議論が強まりました。",
+      "id": "q114",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "12〜14",
+        "topic": "学習指導要領の法的性格",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "旭川学力テスト事件最高裁判決は、国には教育内容を決定する権限が一切ないと判断した。",
+      "answer": false,
+      "explanation": "最高裁は国にも必要かつ相当な範囲で教育内容を決定する権能を認めました。ただし、過度に詳細で画一的な統制は制限されます。",
+      "id": "q115",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "17",
+        "topic": "旭川学力テスト事件",
+        "pageTarget": 17,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "標準授業時数は、法的に一時間も下回ることが許されない絶対的最低時数と同義である。",
+      "answer": false,
+      "explanation": "標準授業時数は「標準」であり、絶対的最低時数と単純に同一ではありません。現場で最低基準のように認識されることが問題として扱われました。",
+      "id": "q116",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "26〜29",
+        "topic": "授業時数",
+        "pageTarget": 26,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "学びの多様化学校も学校教育法第1条に位置づく一条校である。",
+      "answer": true,
+      "explanation": "学びの多様化学校は特別な教育課程を編成しますが、学校制度上は一条校です。",
+      "id": "q117",
+      "source": {
+        "file": "教育組織論第5回.pdf",
+        "pages": "12〜18",
+        "topic": "学びの多様化学校と一条校",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第5回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-05.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "日本国憲法第26条は、保護者に「学校へ通わせる義務」と明記している。",
+      "answer": false,
+      "explanation": "憲法は普通教育を受けさせる義務を規定します。学校への就学義務として具体化しているのは学校教育法です。",
+      "id": "q118",
+      "source": {
+        "file": "教育組織論第5回.pdf",
+        "pages": "20〜22",
+        "topic": "憲法と就学義務",
+        "pageTarget": 20,
+        "displayFile": "教育組織論第5回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-05.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "普通教育機会確保法は、学校以外の場で行われる学習活動の状況を継続的に把握することも求めている。",
+      "answer": true,
+      "explanation": "同法第12条は、不登校児童生徒の学校外での学習活動の状況等を継続的に把握することを国・地方公共団体に求めています。",
+      "id": "q119",
+      "source": {
+        "file": "教育組織論第5回.pdf",
+        "pages": "28",
+        "topic": "学校外の学習活動",
+        "pageTarget": 28,
+        "displayFile": "教育組織論第5回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-05.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "普通免許状は授与した都道府県内でしか効力を持たない。",
+      "answer": false,
+      "explanation": "普通免許状は全国で有効です。特別免許状や臨時免許状との違いに注意が必要です。",
+      "id": "q120",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "15",
+        "topic": "免許状の種類",
+        "pageTarget": 15,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "特別免許状と特別非常勤講師制度は、どちらも教員免許状そのものを授与する制度である。",
+      "answer": false,
+      "explanation": "特別免許状は免許状を授与する制度ですが、特別非常勤講師制度は免許状を持たない外部人材が一部の授業を担当できる制度で、同じではありません。",
+      "id": "q121",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "15〜16",
+        "topic": "特別免許状と特別非常勤講師",
+        "pageTarget": 15,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "教員研修は教員の義務であると同時に、研修機会を保障される権利でもある。",
+      "answer": true,
+      "explanation": "教育公務員特例法の考え方から、教員は研究と修養に努める義務を負う一方、研修機会を与えられる権利も持ちます。",
+      "id": "q122",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "18",
+        "topic": "教員研修の意義",
+        "pageTarget": 18,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "信用失墜行為の禁止や守秘義務は、勤務時間中にだけ適用される職務上の義務である。",
+      "answer": false,
+      "explanation": "これらは身分上の義務に分類され、勤務時間外にも適用されます。守秘義務は退職後にも及び得ます。",
+      "id": "q123",
+      "source": {
+        "file": "教育組織論第7回 .pdf",
+        "pages": "19〜21",
+        "topic": "身分上の義務",
+        "pageTarget": 19,
+        "displayFile": "教育組織論第7回 .pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-07.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "分限処分は、公務員への制裁・懲罰を目的とする処分である。",
+      "answer": false,
+      "explanation": "制裁を目的とするのは懲戒です。分限は勤務実績や適格性などの観点から、公務の能率を維持するための制度です。",
+      "id": "q124",
+      "source": {
+        "file": "教育組織論第7回 .pdf",
+        "pages": "30〜33",
+        "topic": "懲戒と分限",
+        "pageTarget": 30,
+        "displayFile": "教育組織論第7回 .pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-07.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "指導要録では、学籍に関する記録と指導に関する記録の保存期間が同じである。",
+      "answer": false,
+      "explanation": "学籍に関する記録は卒業後20年間、指導に関する記録は卒業後5年間保存すると説明されています。",
+      "id": "q125",
+      "source": {
+        "file": "教育組織論第8回.pdf",
+        "pages": "12",
+        "topic": "指導要録",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第8回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-08.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "学校運営協議会は、校長が作成する学校運営の基本方針を承認する権限を持つ。",
+      "answer": true,
+      "explanation": "教育課程編成などに関する基本方針について、校長は学校運営協議会の承認を得る必要があります。",
+      "id": "q126",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "20〜21",
+        "topic": "学校運営協議会の権限",
+        "pageTarget": 20,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "tf",
+      "q": "義務教育の教科書無償給与は、国公立学校の児童生徒だけが対象である。",
+      "answer": false,
+      "explanation": "国・公・私立の義務教育諸学校の全児童生徒が対象です。",
+      "id": "q127",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "30",
+        "topic": "教科書の使用義務と無償",
+        "pageTarget": 30,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "学校教育法第1条に規定される「一条校」に含まれないものはどれか。",
+      "answer": 3,
+      "explanation": "フリースクールは多様な学びの場ですが、学校教育法第1条に列挙された学校（一条校）ではありません。",
+      "id": "q128",
+      "source": {
+        "file": "教育組織論第２回.pdf",
+        "pages": "5",
+        "topic": "学校制度・一条校",
+        "pageTarget": 5,
+        "displayFile": "教育組織論第２回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-02.pdf"
+      },
+      "options": [
+        "義務教育学校",
+        "高等専門学校",
+        "特別支援学校",
+        "フリースクール"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "公教育の制度原理の組合せとして最も適切なものはどれか。",
+      "answer": 0,
+      "explanation": "授業では公教育の制度原理として、義務性・無償性・中立性などを扱っています。",
+      "id": "q129",
+      "source": {
+        "file": "教育組織論第２回.pdf",
+        "pages": "9〜13",
+        "topic": "公教育の制度原理",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第２回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-02.pdf"
+      },
+      "options": [
+        "義務性・無償性・中立性",
+        "自由性・営利性・選抜性",
+        "任意性・私費性・宗派性",
+        "画一性・競争性・秘密性"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "「教育行政の法律主義」の説明として最も適切なものはどれか。",
+      "answer": 1,
+      "explanation": "戦前の勅令主義への反省から、教育行政も法律に基づいて行われるべきだという原則です。",
+      "id": "q130",
+      "source": {
+        "file": "教育組織論第２回.pdf",
+        "pages": "17",
+        "topic": "教育行政の法律主義",
+        "pageTarget": 17,
+        "displayFile": "教育組織論第２回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-02.pdf"
+      },
+      "options": [
+        "学校は法令に拘束されないという原則",
+        "教育行政には法律上の根拠が必要だという原則",
+        "教育内容は裁判所だけが決めるという原則",
+        "教育委員会が法律を制定できるという原則"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "戦後教育行政改革の三原則に含まれないものはどれか。",
+      "answer": 3,
+      "explanation": "三原則は教育行政の民主化、地方分権、一般行政からの相対的独立です。",
+      "id": "q131",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "16〜18",
+        "topic": "教育委員会制度の成立",
+        "pageTarget": 16,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "options": [
+        "教育行政の民主化",
+        "教育行政の地方分権",
+        "一般行政からの相対的独立",
+        "文部科学省への中央集権化"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "現行の教育委員会制度について正しいものはどれか。",
+      "answer": 2,
+      "explanation": "教育委員会は教育長と教育委員による合議制の執行機関です。",
+      "id": "q132",
+      "source": {
+        "file": "教育組織論第3回.pdf",
+        "pages": "27〜30",
+        "topic": "現行の教育委員会制度",
+        "pageTarget": 27,
+        "displayFile": "教育組織論第3回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-03.pdf"
+      },
+      "options": [
+        "教育委員は住民の直接選挙で選ばれる",
+        "教育長は学校長が互選する",
+        "教育長と教育委員からなる合議制機関である",
+        "首長部局の単なる諮問機関である"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "学校が教育課程を編成する際の「地方基準」に当たるものはどれか。",
+      "answer": 2,
+      "explanation": "教育委員会規則や学校運営（管理）規則は、設置者ごとに定められる地方基準です。",
+      "id": "q133",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "8〜9",
+        "topic": "国家基準と地方基準",
+        "pageTarget": 8,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "options": [
+        "日本国憲法",
+        "学習指導要領",
+        "教育委員会規則",
+        "教育基本法"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "1947年の学習指導要領の性格として最も適切なものはどれか。",
+      "answer": 0,
+      "explanation": "「試案」とされ、教師への手引き・指導助言的文書としての性格が強いものでした。",
+      "id": "q134",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "13",
+        "topic": "学習指導要領の歴史",
+        "pageTarget": 13,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "options": [
+        "手引き書・参考資料",
+        "国会制定の法律",
+        "地方自治体の条例",
+        "教科書検定基準そのもの"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "旭川学力テスト事件最高裁判決の理解として最も適切なものはどれか。",
+      "answer": 1,
+      "explanation": "最高裁は国の教育内容決定権を完全否定せず、必要かつ相当な範囲に認め、学習指導要領を大綱的基準と捉えました。",
+      "id": "q135",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "17〜18",
+        "topic": "旭川学力テスト事件",
+        "pageTarget": 17,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "options": [
+        "国は教育内容を無制限に細部まで決定できる",
+        "国は必要かつ相当な範囲で大綱的基準を定められる",
+        "教師だけが教育内容を決定できる",
+        "学習指導要領には一切の意味がない"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "「社会に開かれた教育課程」が重視するものはどれか。",
+      "answer": 3,
+      "explanation": "学校と社会がよりよい社会づくりという目標を共有し、連携・協働して教育課程を実現する考えです。",
+      "id": "q136",
+      "source": {
+        "file": "教育組織論第4回.pdf",
+        "pages": "19",
+        "topic": "社会に開かれた教育課程",
+        "pageTarget": 19,
+        "displayFile": "教育組織論第4回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-04.pdf"
+      },
+      "options": [
+        "学校外部から教育内容を完全に遮断すること",
+        "授業をすべてオンライン公開すること",
+        "教育課程を企業に委ねること",
+        "学校と社会が教育目標を共有すること"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "憲法と学校教育法の関係について正しいものはどれか。",
+      "answer": 2,
+      "explanation": "憲法第26条は普通教育を受けさせる義務を定め、学校教育法が原則として一条校への就学義務に具体化しています。",
+      "id": "q137",
+      "source": {
+        "file": "教育組織論第5回.pdf",
+        "pages": "20〜22",
+        "topic": "教育を受ける権利と就学義務",
+        "pageTarget": 20,
+        "displayFile": "教育組織論第5回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-05.pdf"
+      },
+      "options": [
+        "憲法が特定の学校名まで定める",
+        "学校教育法は就学義務を廃止している",
+        "憲法上の普通教育義務を学校教育法が就学義務として具体化する",
+        "憲法と学校教育法は無関係である"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "普通教育機会確保法の基本的方向として不適切なものはどれか。",
+      "answer": 3,
+      "explanation": "同法は不登校児童生徒の状況に配慮した教育機会の確保や支援を重視します。登校の強制だけを目的とする法律ではありません。",
+      "id": "q138",
+      "source": {
+        "file": "教育組織論第5回.pdf",
+        "pages": "23〜30",
+        "topic": "普通教育機会確保法",
+        "pageTarget": 23,
+        "displayFile": "教育組織論第5回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-05.pdf"
+      },
+      "options": [
+        "不登校児童生徒の実態への配慮",
+        "多様な学習活動への支援",
+        "学校外の学習状況の把握",
+        "全員を直ちに元の学校へ強制復帰させること"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "特別免許状について正しいものはどれか。",
+      "answer": 1,
+      "explanation": "優れた知識経験を持つ社会人等を登用するため、都道府県教育委員会の教育職員検定を経て授与されます。",
+      "id": "q139",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "15",
+        "topic": "免許状の種類",
+        "pageTarget": 15,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "options": [
+        "普通免許状保持者を採用できない場合だけ3年間授与される",
+        "優れた知識経験を持つ者に教育職員検定を経て授与される",
+        "全国の大学卒業者に自動的に授与される",
+        "免許状ではなく授業補助者の登録制度である"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "臨時免許状の説明として正しいものはどれか。",
+      "answer": 0,
+      "explanation": "普通免許状を持つ者を採用できない場合に限り、期限付きで授与される例外的な免許状です。",
+      "id": "q140",
+      "source": {
+        "file": "教育組織論第6回.pdf",
+        "pages": "15〜16",
+        "topic": "臨時免許状",
+        "pageTarget": 15,
+        "displayFile": "教育組織論第6回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-06.pdf"
+      },
+      "options": [
+        "普通免許状保持者を採用できない場合に限り期限付きで授与される",
+        "社会人の専門性のみを理由に無期限で授与される",
+        "全国で永久に有効である",
+        "大学在学中の全学生に授与される"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "正規教員と非常勤講師の違いを考える際、授業で特に重視された点はどれか。",
+      "answer": 2,
+      "explanation": "授業を行えるかだけでなく、校務分掌など学校運営全体への責任を担うかが重要な違いです。",
+      "id": "q141",
+      "source": {
+        "file": "教育組織論第7回 .pdf",
+        "pages": "9〜10",
+        "topic": "正規教員と非常勤講師",
+        "pageTarget": 9,
+        "displayFile": "教育組織論第7回 .pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-07.pdf"
+      },
+      "options": [
+        "年齢だけ",
+        "担当教科の難しさだけ",
+        "学校運営全体への責任",
+        "免許状の発行都道府県だけ"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "次のうち「身分上の義務」に当たるものはどれか。",
+      "answer": 1,
+      "explanation": "信用失墜行為の禁止、守秘義務、政治的行為の制限、争議行為等の禁止、兼職・兼業の禁止などは身分上の義務です。",
+      "id": "q142",
+      "source": {
+        "file": "教育組織論第7回 .pdf",
+        "pages": "19〜25",
+        "topic": "教職員の服務",
+        "pageTarget": 19,
+        "displayFile": "教育組織論第7回 .pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-07.pdf"
+      },
+      "options": [
+        "授業時数を編成する義務",
+        "守秘義務",
+        "学習指導要領を告示する義務",
+        "教科書を検定する義務"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "懲戒処分と分限処分の違いとして正しいものはどれか。",
+      "answer": 3,
+      "explanation": "懲戒は非違行為への制裁、分限は勤務実績や適格性などから公務の能率を維持するための措置です。",
+      "id": "q143",
+      "source": {
+        "file": "教育組織論第7回 .pdf",
+        "pages": "30〜33",
+        "topic": "懲戒と分限",
+        "pageTarget": 30,
+        "displayFile": "教育組織論第7回 .pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-07.pdf"
+      },
+      "options": [
+        "どちらも刑事罰である",
+        "分限だけが非違行為への制裁である",
+        "懲戒は能力向上研修だけを指す",
+        "懲戒は制裁、分限は公務能率の維持を目的とする"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "学齢簿を作成する主体はどれか。",
+      "answer": 1,
+      "explanation": "住民基本台帳を基に、市町村教育委員会が作成します。",
+      "id": "q144",
+      "source": {
+        "file": "教育組織論第8回.pdf",
+        "pages": "11",
+        "topic": "学齢簿",
+        "pageTarget": 11,
+        "displayFile": "教育組織論第8回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-08.pdf"
+      },
+      "options": [
+        "各学校の校長",
+        "市町村教育委員会",
+        "文部科学大臣",
+        "保護者"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "指導要録の保存期間の組合せとして正しいものはどれか。",
+      "answer": 2,
+      "explanation": "学籍に関する記録は卒業後20年間、指導に関する記録は卒業後5年間です。",
+      "id": "q145",
+      "source": {
+        "file": "教育組織論第8回.pdf",
+        "pages": "12",
+        "topic": "指導要録",
+        "pageTarget": 12,
+        "displayFile": "教育組織論第8回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-08.pdf"
+      },
+      "options": [
+        "学籍5年・指導20年",
+        "両方1年",
+        "学籍20年・指導5年",
+        "両方永久"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "学校運営協議会の権限として認められていないものはどれか。",
+      "answer": 3,
+      "explanation": "学校運営協議会は基本方針の承認や意見表明ができますが、教員を直接採用・任命する機関ではありません。",
+      "id": "q146",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "19〜21",
+        "topic": "学校運営協議会の権限",
+        "pageTarget": 19,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "options": [
+        "学校運営の基本方針を承認する",
+        "学校運営について教育委員会や校長に意見を述べる",
+        "職員の任用について任命権者に意見を述べる",
+        "教員を直接採用し任命する"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    },
+    {
+      "type": "mcq",
+      "q": "義務教育教科書の無償給与の目的として最も適切なものはどれか。",
+      "answer": 0,
+      "explanation": "教科書無償は、子どもの教育を受ける権利・学習する権利を保障するための制度です。",
+      "id": "q147",
+      "source": {
+        "file": "教育組織論第9回.pdf",
+        "pages": "30",
+        "topic": "教科書の無償",
+        "pageTarget": 30,
+        "displayFile": "教育組織論第9回.pdf",
+        "url": null,
+        "suggestedPath": "materials/educational-organization/lesson-09.pdf"
+      },
+      "options": [
+        "教育を受ける権利を保障するため",
+        "出版社の利益を保障するため",
+        "学校ごとの競争を強めるため",
+        "教科書の使用を任意にするため"
+      ],
+      "tags": [],
+      "difficulty": "standard"
+    }
+  ]
+}
