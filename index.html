@@ -44,11 +44,15 @@
     .community-header{margin:14px 0 9px;padding:13px 14px;border:1px solid #cbd7ff;border-radius:14px;background:linear-gradient(135deg,#edf2ff,#f8faff);animation:community-pop .38s ease both}
     .community-title{display:flex;align-items:center;gap:8px;font-size:1.05rem;font-weight:850;color:#253b92}
     .community-title-icon{font-size:1.25rem}
+    .community-status{margin-top:5px;color:var(--muted);font-size:.86rem}
     .community-loading{margin-top:5px;color:var(--muted);font-size:.86rem}
     .community-loading::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:loading-dots 1.1s steps(4,end) infinite}
-    .choice.poll-choice{position:relative;overflow:hidden;isolation:isolate;min-height:58px;animation:poll-reveal .34s ease both}
-    .choice.poll-choice::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--poll-width,0%);background:#e3e9f5;z-index:-1;transition:width .72s cubic-bezier(.2,.75,.25,1)}
-    .choice.poll-choice.poll-correct::before{background:#dff3e7}
+    .choice.poll-choice{position:relative;overflow:hidden;isolation:isolate;min-height:68px;animation:poll-reveal .34s ease both}
+    .choice.poll-choice::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--poll-width,0%);background:#edf1f8;z-index:-1;transition:width 1.2s cubic-bezier(.16,.8,.24,1)}
+    .choice.poll-choice.poll-correct::before{background:#e3f5e9}
+    .poll-track{height:8px;margin-top:9px;background:rgba(104,117,140,.16);border-radius:99px;overflow:hidden}
+    .poll-fill{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width 1.2s cubic-bezier(.16,.8,.24,1);box-shadow:0 0 0 1px rgba(49,94,251,.08)}
+    .poll-correct .poll-fill{background:var(--good)}
     .choice.poll-choice.poll-selected{outline:3px solid #8fa5ff}
     .choice.poll-choice:disabled{opacity:1;cursor:default}
     .poll-line{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;width:100%}
@@ -327,7 +331,7 @@ function ensureCommunityHeader(loading=false){
     if(firstChoice) $('#answerArea').insertBefore(header,firstChoice);
     else $('#answerArea').prepend(header);
   }
-  header.innerHTML=`<div class="community-title"><span class="community-title-icon">📊</span><span>みんなの回答</span></div>${loading?'<div class="community-loading">回答を集計中</div>':'<div class="community-loading" style="animation:none">最新の集計結果</div>'}`;
+  header.innerHTML=`<div class="community-title"><span class="community-title-icon">📊</span><span>みんなの回答</span></div>${loading?'<div class="community-loading">回答を集計中</div>':'<div class="community-status">最新の集計結果</div>'}`;
   return header;
 }
 function animatePercent(element,target,duration=700){
@@ -369,15 +373,18 @@ function renderCommunityStats(q, stats, selectedValue){
     const notes=[];
     if(isCorrect) notes.push('✓ 正解');
     if(isSelected) notes.push('あなたの回答');
-    button.innerHTML=`<span class="poll-line"><span class="poll-text">${escapeHtml(original)}</span><span class="poll-percent">0%</span></span>${notes.length?`<span class="poll-meta">${escapeHtml(notes.join('・'))}</span>`:''}`;
-    targets.push({button,percent,percentElement:button.querySelector('.poll-percent')});
+    button.innerHTML=`<span class="poll-line"><span class="poll-text">${escapeHtml(original)}</span><span class="poll-percent">0%</span></span><span class="poll-track"><span class="poll-fill"></span></span>${notes.length?`<span class="poll-meta">${escapeHtml(notes.join('・'))}</span>`:''}`;
+    targets.push({button,percent,percentElement:button.querySelector('.poll-percent'),fillElement:button.querySelector('.poll-fill')});
   });
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    targets.forEach(({button,percent,percentElement})=>{
-      button.style.setProperty('--poll-width',`${percent}%`);
-      animatePercent(percentElement,percent);
+  setTimeout(()=>{
+    targets.forEach(({button,percent,percentElement,fillElement},index)=>{
+      setTimeout(()=>{
+        button.style.setProperty('--poll-width',`${percent}%`);
+        fillElement.style.width=`${percent}%`;
+        animatePercent(percentElement,percent,1200);
+      },index*90);
     });
-  }));
+  },220);
   let summary=$('#communitySummary');
   if(!summary){
     summary=document.createElement('div');
