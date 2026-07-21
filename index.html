@@ -41,15 +41,24 @@
     .progress{height:9px;background:#e5ebf4;border-radius:99px;overflow:hidden;margin:11px 0 17px}.progress>div{height:100%;background:var(--accent)}
     .question{font-size:1.22rem;line-height:1.65}.choice{width:100%;text-align:left;background:#fff;border:1px solid var(--line);margin:6px 0}
     .choice:hover{background:#f7f9fc}.choice.selected{outline:3px solid #b9c7ff;background:#f3f6ff}
-    .choice.poll-choice{position:relative;overflow:hidden;isolation:isolate}
-    .choice.poll-choice::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--poll-width,0%);background:#e3e9f5;z-index:-1;transition:width .35s ease}
+    .community-header{margin:14px 0 9px;padding:13px 14px;border:1px solid #cbd7ff;border-radius:14px;background:linear-gradient(135deg,#edf2ff,#f8faff);animation:community-pop .38s ease both}
+    .community-title{display:flex;align-items:center;gap:8px;font-size:1.05rem;font-weight:850;color:#253b92}
+    .community-title-icon{font-size:1.25rem}
+    .community-loading{margin-top:5px;color:var(--muted);font-size:.86rem}
+    .community-loading::after{content:"";display:inline-block;width:1.2em;text-align:left;animation:loading-dots 1.1s steps(4,end) infinite}
+    .choice.poll-choice{position:relative;overflow:hidden;isolation:isolate;min-height:58px;animation:poll-reveal .34s ease both}
+    .choice.poll-choice::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--poll-width,0%);background:#e3e9f5;z-index:-1;transition:width .72s cubic-bezier(.2,.75,.25,1)}
     .choice.poll-choice.poll-correct::before{background:#dff3e7}
-    .choice.poll-choice.poll-selected{outline:3px solid #b9c7ff}
+    .choice.poll-choice.poll-selected{outline:3px solid #8fa5ff}
     .choice.poll-choice:disabled{opacity:1;cursor:default}
     .poll-line{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;width:100%}
-    .poll-text{font-weight:700}.poll-percent{font-weight:800;white-space:nowrap}
-    .poll-meta{display:block;margin-top:4px;font-size:.78rem;color:var(--muted)}
-    .community-summary{margin-top:10px;padding:11px 13px;border-radius:12px;background:#f2f5fa;color:var(--muted)}
+    .poll-text{font-weight:700}.poll-percent{font-size:1.04rem;font-weight:850;white-space:nowrap;min-width:3.3em;text-align:right}
+    .poll-meta{display:inline-block;margin-top:6px;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.72);font-size:.78rem;color:#344054}
+    .community-summary{margin-top:11px;padding:13px 14px;border:1px solid #d8e0ef;border-radius:13px;background:#f2f5fa;color:#344054;font-weight:750;animation:community-pop .38s .2s ease both}
+    @keyframes community-pop{from{opacity:0;transform:translateY(7px) scale(.985)}to{opacity:1;transform:none}}
+    @keyframes poll-reveal{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+    @keyframes loading-dots{0%{content:""}25%{content:"."}50%{content:".."}75%,100%{content:"..."}}
+    @media (prefers-reduced-motion:reduce){.community-header,.community-summary,.choice.poll-choice{animation:none}.choice.poll-choice::before{transition:none}}
     .feedback{margin-top:14px;background:#f2f5fa;padding:15px;border-radius:13px;line-height:1.65}
     .source{margin-top:12px;padding:13px;background:#edf2ff;border-left:4px solid var(--accent);border-radius:9px}
     .source a{display:inline-block;margin-top:8px;text-decoration:none;background:var(--accent);color:#fff;padding:9px 11px;border-radius:10px;font-weight:700}
@@ -211,7 +220,7 @@
 <script>
 'use strict';
 const STORAGE_KEY = 'study-platform-progress-v1';
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.2.1';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCdg7RpNqtJz0dsLdpIMjPgbEqnxcIgzDw",
@@ -308,10 +317,39 @@ function answerCountKey(q, selectedValue){
   const index=Number(selectedValue);
   return Number.isInteger(index) && index>=0 && index<=3 ? `choice${index}` : null;
 }
+function ensureCommunityHeader(loading=false){
+  let header=$('#communityHeader');
+  if(!header){
+    header=document.createElement('div');
+    header.id='communityHeader';
+    header.className='community-header';
+    const firstChoice=$('#answerArea .choice');
+    if(firstChoice) $('#answerArea').insertBefore(header,firstChoice);
+    else $('#answerArea').prepend(header);
+  }
+  header.innerHTML=`<div class="community-title"><span class="community-title-icon">📊</span><span>みんなの回答</span></div>${loading?'<div class="community-loading">回答を集計中</div>':'<div class="community-loading" style="animation:none">最新の集計結果</div>'}`;
+  return header;
+}
+function animatePercent(element,target,duration=700){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    element.textContent=`${target}%`;
+    return;
+  }
+  const start=performance.now();
+  const tick=now=>{
+    const progress=Math.min(1,(now-start)/duration);
+    const eased=1-Math.pow(1-progress,3);
+    element.textContent=`${Math.round(target*eased)}%`;
+    if(progress<1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
 function renderCommunityStats(q, stats, selectedValue){
   if(q.type==='fill') return;
+  ensureCommunityHeader(false);
   const total=stats.total||0;
   const buttons=[...$('#answerArea').querySelectorAll('.choice')];
+  const targets=[];
   buttons.forEach((button,index)=>{
     const value=button.dataset.value;
     const key=answerCountKey(q,value);
@@ -325,27 +363,36 @@ function renderCommunityStats(q, stats, selectedValue){
     button.classList.add('poll-choice');
     button.classList.toggle('poll-correct',isCorrect);
     button.classList.toggle('poll-selected',isSelected);
-    button.style.setProperty('--poll-width',`${percent}%`);
+    button.style.setProperty('--poll-width','0%');
+    button.style.animationDelay=`${index*55}ms`;
     button.disabled=true;
     const notes=[];
     if(isCorrect) notes.push('✓ 正解');
     if(isSelected) notes.push('あなたの回答');
-    button.innerHTML=`<span class="poll-line"><span class="poll-text">${escapeHtml(original)}</span><span class="poll-percent">${percent}%</span></span>${notes.length?`<span class="poll-meta">${escapeHtml(notes.join('・'))}</span>`:''}`;
+    button.innerHTML=`<span class="poll-line"><span class="poll-text">${escapeHtml(original)}</span><span class="poll-percent">0%</span></span>${notes.length?`<span class="poll-meta">${escapeHtml(notes.join('・'))}</span>`:''}`;
+    targets.push({button,percent,percentElement:button.querySelector('.poll-percent')});
   });
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    targets.forEach(({button,percent,percentElement})=>{
+      button.style.setProperty('--poll-width',`${percent}%`);
+      animatePercent(percentElement,percent);
+    });
+  }));
   let summary=$('#communitySummary');
   if(!summary){
     summary=document.createElement('div');
     summary.id='communitySummary';
-    summary.className='community-summary small';
+    summary.className='community-summary';
     $('#answerArea').appendChild(summary);
   }
   const rate=total ? Math.round((stats.correct||0)/total*100) : 0;
-  summary.textContent=`みんなの回答：${total}件　正答率：${rate}%`;
+  summary.innerHTML=`回答数 <b>${total}件</b>　・　全体の正答率 <b>${rate}%</b>${total<5?'<br><span class="small muted">回答数が少ないため、割合は参考値です。</span>':''}`;
 }
 async function submitAndRenderAnswerStats(q, selectedValue, correct){
   if(!db || q.type==='fill') return;
   const key=answerCountKey(q,selectedValue);
   if(!key) return;
+  ensureCommunityHeader(true);
   const ref=db.collection('answerStats').doc(statsDocumentId(q));
   try{
     const stats=await db.runTransaction(async transaction=>{
@@ -363,6 +410,7 @@ async function submitAndRenderAnswerStats(q, selectedValue, correct){
     renderCommunityStats(q,stats,selectedValue);
   }catch(error){
     console.warn('みんなの回答を取得できませんでした。',error);
+    ensureCommunityHeader(false);
     let summary=$('#communitySummary');
     if(!summary){
       summary=document.createElement('div');
