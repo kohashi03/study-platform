@@ -76,9 +76,22 @@
     .toolbar{display:flex;gap:8px;flex-wrap:wrap}.toolbar>*{flex:1;min-width:150px}
     .notice{padding:12px;border-radius:12px;background:#fff8dd;color:#6f5500;line-height:1.55}
     .version{font-size:.8rem;color:var(--muted)}
+    .question-list-controls{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:14px 0}
+    .question-stat-row{padding:15px 0;border-bottom:1px solid var(--line)}
+    .question-stat-row:last-child{border-bottom:0}
+    .question-stat-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+    .question-stat-title{font-weight:800;line-height:1.55}
+    .rate-badge{flex:0 0 auto;min-width:78px;text-align:center;padding:8px 10px;border-radius:12px;background:#eef2f7;font-weight:850}
+    .rate-badge.low{background:#fff0f1;color:var(--bad)}
+    .rate-badge.mid{background:#fff8dd;color:var(--warn)}
+    .rate-badge.high{background:#e7f6ec;color:var(--good)}
+    .rate-bar{height:10px;background:#e7ecf4;border-radius:99px;overflow:hidden;margin:10px 0 8px}
+    .rate-bar>div{height:100%;background:var(--accent);border-radius:99px}
+    .question-stat-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+    .question-stat-action{margin-top:9px;padding:8px 11px}
     @media(max-width:680px){
       .grid,.grid3{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}
-      .app{padding:10px}.card{padding:16px}.question{font-size:1.1rem}
+      .app{padding:10px}.card{padding:16px}.question{font-size:1.1rem}.question-list-controls{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -88,6 +101,7 @@
     <button class="tab active" data-view="study">学習</button>
     <button class="tab" data-view="subjects">科目</button>
     <button class="tab" data-view="analysis">苦手分析</button>
+    <button class="tab" data-view="questionStats">正答率一覧</button>
     <button class="tab" data-view="materials">復習資料</button>
     <button class="tab" data-view="settings">設定</button>
   </nav>
@@ -197,6 +211,17 @@
     <div id="analysisList"></div>
   </section>
 
+  <section id="questionStats" class="card hidden">
+    <h1>問題ごとの正答率</h1>
+    <p class="subtitle">みんなの正答率と、自分の正解・誤答回数を一覧で確認できます。</p>
+    <div class="question-list-controls">
+      <div><label class="label" for="questionStatsSort">並び順</label><select id="questionStatsSort" class="field"><option value="rateAsc">正答率が低い順</option><option value="rateDesc">正答率が高い順</option><option value="wrongDesc">自分の誤答が多い順</option><option value="original">問題の順番</option></select></div>
+      <div><label class="label" for="questionStatsSearch">問題検索</label><input id="questionStatsSearch" class="field" type="search" placeholder="問題文を検索"></div>
+    </div>
+    <p id="questionStatsStatus" class="small muted"></p>
+    <div id="questionStatsList"></div>
+  </section>
+
   <section id="materials" class="card hidden">
     <h1>復習資料</h1>
     <p class="subtitle">誤答の多い資料・ページから順に表示します。</p>
@@ -224,7 +249,7 @@
 <script>
 'use strict';
 const STORAGE_KEY = 'study-platform-progress-v1';
-const APP_VERSION = '1.2.1';
+const APP_VERSION = '1.3.0';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCdg7RpNqtJz0dsLdpIMjPgbEqnxcIgzDw",
@@ -447,6 +472,7 @@ async function loadSubject(id){
   if(!entry) throw new Error('科目が見つかりません');
   subject=await fetch(entry.dataFile,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`${entry.title}の問題データを取得できません`);return r.json()});
   activeSubjectId=id;
+  communityStatsCache=null; communityStatsSubjectId='';
   localStorage.setItem('study-platform-active-subject',id);
   populateFilters();
   renderAll();
@@ -459,9 +485,10 @@ function populateFilters(){
   $('#searchQuery').value='';
 }
 function showView(id){
-  ['study','quiz','result','subjects','analysis','materials','settings'].forEach(v=>$('#'+v)?.classList.toggle('hidden',v!==id));
+  ['study','quiz','result','subjects','analysis','questionStats','materials','settings'].forEach(v=>$('#'+v)?.classList.toggle('hidden',v!==id));
   $$('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===id));
   if(id==='analysis') renderAnalysis();
+  if(id==='questionStats') renderQuestionStats();
   if(id==='materials') renderMaterials();
   if(id==='subjects') renderSubjects();
 }
@@ -655,6 +682,71 @@ function renderAnalysis(){
       <span class="small muted">${escapeHtml(q.source?.displayFile||'資料未設定')} p.${escapeHtml(q.source?.pages||'未設定')}</span>
     </div>`).join(''):'<div class="empty">苦手問題はまだ記録されていません。</div>';
 }
+let communityStatsCache = null;
+let communityStatsSubjectId = '';
+async function loadCommunityStatsForSubject(){
+  if(!db) return {};
+  if(communityStatsCache && communityStatsSubjectId===subject.id) return communityStatsCache;
+  const snapshot=await db.collection('answerStats').where('subjectId','==',subject.id).get();
+  const map={};
+  snapshot.forEach(doc=>{const data=doc.data(); if(data.questionId) map[data.questionId]=data;});
+  communityStatsCache=map;
+  communityStatsSubjectId=subject.id;
+  return map;
+}
+function rateBadgeClass(rate){
+  if(rate===null) return '';
+  if(rate<50) return 'low';
+  if(rate<75) return 'mid';
+  return 'high';
+}
+async function renderQuestionStats(){
+  if(!subject) return;
+  const list=$('#questionStatsList');
+  const status=$('#questionStatsStatus');
+  status.textContent='集計結果を読み込んでいます…';
+  list.innerHTML='';
+  let community={};
+  try{ community=await loadCommunityStatsForSubject(); }
+  catch(error){ console.warn('正答率一覧を読み込めませんでした。',error); status.textContent='みんなの正答率を読み込めませんでした。自分の記録のみ表示します。'; }
+  const sp=subjectProgress();
+  const query=normalize($('#questionStatsSearch')?.value||'');
+  const sort=$('#questionStatsSort')?.value||'rateAsc';
+  let rows=subject.questions.map((q,index)=>{
+    const c=community[q.id]||null;
+    const p=sp.items[q.id]||{attempts:0,correct:0,wrong:0,unknown:0};
+    const rate=c&&c.total ? Math.round((c.correct||0)/c.total*100) : null;
+    return {q,index,c,p,rate};
+  }).filter(({q})=>!query || normalize([q.q,q.source?.topic,q.source?.displayFile].filter(Boolean).join(' ')).includes(query));
+  if(sort==='rateAsc') rows.sort((a,b)=>(a.rate??101)-(b.rate??101)||a.index-b.index);
+  if(sort==='rateDesc') rows.sort((a,b)=>(b.rate??-1)-(a.rate??-1)||a.index-b.index);
+  if(sort==='wrongDesc') rows.sort((a,b)=>(b.p.wrong||0)-(a.p.wrong||0)||a.index-b.index);
+  if(sort==='original') rows.sort((a,b)=>a.index-b.index);
+  if(status.textContent.startsWith('集計')) status.textContent=`${rows.length}問を表示しています。穴埋め問題は、みんなの正答率の集計対象外です。`;
+  list.innerHTML=rows.length?rows.map(({q,c,p,rate})=>{
+    const total=c?.total||0;
+    const rateText=rate===null?'データなし':`${rate}%`;
+    const selfRate=p.attempts?Math.round((p.correct||0)/p.attempts*100):null;
+    return `<div class="question-stat-row">
+      <div class="question-stat-head"><div class="question-stat-title">${escapeHtml(q.q)}</div><div class="rate-badge ${rateBadgeClass(rate)}">${rateText}</div></div>
+      <div class="rate-bar"><div style="width:${rate??0}%"></div></div>
+      <div class="question-stat-meta">
+        <span class="tag">${escapeHtml(questionTypeName(q.type))}</span>
+        <span class="tag">みんな ${total}回答</span>
+        <span class="tag">自分：正解 ${p.correct||0}回</span>
+        <span class="tag">誤答 ${p.wrong||0}回</span>
+        ${p.unknown?`<span class="tag">わからない ${p.unknown}回</span>`:''}
+        ${selfRate===null?'':`<span class="tag">自分の正答率 ${selfRate}%</span>`}
+      </div>
+      <button class="secondary question-stat-action" data-question-id="${escapeAttr(q.id)}">この問題に挑戦</button>
+    </div>`;
+  }).join(''):'<div class="empty">該当する問題がありません。</div>';
+  $$('.question-stat-action').forEach(button=>button.onclick=()=>{
+    const q=subject.questions.find(item=>item.id===button.dataset.questionId);
+    if(q) startQuiz([q]);
+  });
+}
+
 function renderMaterials(){
   if(!subject) return;
   const sp=subjectProgress(), groups={};
@@ -716,6 +808,8 @@ $('#count').onchange=updateAvailability;
 $('#lessonFilter').onchange=updateAvailability;
 $('#topicFilter').onchange=updateAvailability;
 $('#searchQuery').oninput=updateAvailability;
+$('#questionStatsSort').onchange=renderQuestionStats;
+$('#questionStatsSearch').oninput=renderQuestionStats;
 $('#startQuiz').onclick=()=>startQuiz();
 $('#submitAnswer').onclick=checkAnswer;
 $('#nextQuestion').onclick=nextQuestion;
