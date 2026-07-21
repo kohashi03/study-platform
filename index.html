@@ -41,6 +41,15 @@
     .progress{height:9px;background:#e5ebf4;border-radius:99px;overflow:hidden;margin:11px 0 17px}.progress>div{height:100%;background:var(--accent)}
     .question{font-size:1.22rem;line-height:1.65}.choice{width:100%;text-align:left;background:#fff;border:1px solid var(--line);margin:6px 0}
     .choice:hover{background:#f7f9fc}.choice.selected{outline:3px solid #b9c7ff;background:#f3f6ff}
+    .choice.poll-choice{position:relative;overflow:hidden;isolation:isolate}
+    .choice.poll-choice::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--poll-width,0%);background:#e3e9f5;z-index:-1;transition:width .35s ease}
+    .choice.poll-choice.poll-correct::before{background:#dff3e7}
+    .choice.poll-choice.poll-selected{outline:3px solid #b9c7ff}
+    .choice.poll-choice:disabled{opacity:1;cursor:default}
+    .poll-line{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;width:100%}
+    .poll-text{font-weight:700}.poll-percent{font-weight:800;white-space:nowrap}
+    .poll-meta{display:block;margin-top:4px;font-size:.78rem;color:var(--muted)}
+    .community-summary{margin-top:10px;padding:11px 13px;border-radius:12px;background:#f2f5fa;color:var(--muted)}
     .feedback{margin-top:14px;background:#f2f5fa;padding:15px;border-radius:13px;line-height:1.65}
     .source{margin-top:12px;padding:13px;background:#edf2ff;border-left:4px solid var(--accent);border-radius:9px}
     .source a{display:inline-block;margin-top:8px;text-decoration:none;background:var(--accent);color:#fff;padding:9px 11px;border-radius:10px;font-weight:700}
@@ -197,10 +206,29 @@
   </section>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 <script>
 'use strict';
 const STORAGE_KEY = 'study-platform-progress-v1';
-const APP_VERSION = '1.1.1';
+const APP_VERSION = '1.2.0';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCdg7RpNqtJz0dsLdpIMjPgbEqnxcIgzDw",
+  authDomain: "study-platform-fde74.firebaseapp.com",
+  projectId: "study-platform-fde74",
+  storageBucket: "study-platform-fde74.firebasestorage.app",
+  messagingSenderId: "1065015968541",
+  appId: "1:1065015968541:web:1c78c8daa07f11bdd997f4"
+};
+let db = null;
+try{
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.firestore();
+}catch(error){
+  console.warn('Firebaseの初期化に失敗しました。通常の学習機能は利用できます。', error);
+}
+
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
@@ -258,6 +286,92 @@ function statusName(status){
 function sourceKey(q){
   const s=q.source||{};
   return `${s.displayFile||s.file||'資料未設定'}｜${s.pages||'ページ未設定'}｜${s.topic||''}`;
+}
+function statsDocumentId(q){
+  return `${subject.id}__${q.id}`.replace(/[^a-zA-Z0-9_-]/g,'_');
+}
+function blankStats(q){
+  return {
+    subjectId: subject.id,
+    questionId: q.id,
+    total: 0,
+    correct: 0,
+    choice0: 0,
+    choice1: 0,
+    choice2: 0,
+    choice3: 0,
+    unknown: 0
+  };
+}
+function answerCountKey(q, selectedValue){
+  if(selectedValue==='unknown') return 'unknown';
+  const index=Number(selectedValue);
+  return Number.isInteger(index) && index>=0 && index<=3 ? `choice${index}` : null;
+}
+function renderCommunityStats(q, stats, selectedValue){
+  if(q.type==='fill') return;
+  const total=stats.total||0;
+  const buttons=[...$('#answerArea').querySelectorAll('.choice')];
+  buttons.forEach((button,index)=>{
+    const value=button.dataset.value;
+    const key=answerCountKey(q,value);
+    const count=key ? (stats[key]||0) : 0;
+    const percent=total ? Math.round(count/total*100) : 0;
+    const isCorrect=value!=='unknown' && (q.type==='tf' ? Number(value)===(q.answer?0:1) : Number(value)===q.answer);
+    const isSelected=String(value)===String(selectedValue);
+    const original=q.type==='mcq'
+      ? (value==='unknown' ? 'わからない' : `${Number(value)+1}. ${q.options[Number(value)]}`)
+      : (value==='unknown' ? 'わからない' : ['○','×'][Number(value)]);
+    button.classList.add('poll-choice');
+    button.classList.toggle('poll-correct',isCorrect);
+    button.classList.toggle('poll-selected',isSelected);
+    button.style.setProperty('--poll-width',`${percent}%`);
+    button.disabled=true;
+    const notes=[];
+    if(isCorrect) notes.push('✓ 正解');
+    if(isSelected) notes.push('あなたの回答');
+    button.innerHTML=`<span class="poll-line"><span class="poll-text">${escapeHtml(original)}</span><span class="poll-percent">${percent}%</span></span>${notes.length?`<span class="poll-meta">${escapeHtml(notes.join('・'))}</span>`:''}`;
+  });
+  let summary=$('#communitySummary');
+  if(!summary){
+    summary=document.createElement('div');
+    summary.id='communitySummary';
+    summary.className='community-summary small';
+    $('#answerArea').appendChild(summary);
+  }
+  const rate=total ? Math.round((stats.correct||0)/total*100) : 0;
+  summary.textContent=`みんなの回答：${total}件　正答率：${rate}%`;
+}
+async function submitAndRenderAnswerStats(q, selectedValue, correct){
+  if(!db || q.type==='fill') return;
+  const key=answerCountKey(q,selectedValue);
+  if(!key) return;
+  const ref=db.collection('answerStats').doc(statsDocumentId(q));
+  try{
+    const stats=await db.runTransaction(async transaction=>{
+      const snap=await transaction.get(ref);
+      const current=snap.exists ? snap.data() : blankStats(q);
+      const next={...blankStats(q),...current};
+      next.total=(current.total||0)+1;
+      next.correct=(current.correct||0)+(correct?1:0);
+      next[key]=(current[key]||0)+1;
+      next.updatedAt=firebase.firestore.FieldValue.serverTimestamp();
+      if(snap.exists) transaction.update(ref,next);
+      else transaction.set(ref,next);
+      return next;
+    });
+    renderCommunityStats(q,stats,selectedValue);
+  }catch(error){
+    console.warn('みんなの回答を取得できませんでした。',error);
+    let summary=$('#communitySummary');
+    if(!summary){
+      summary=document.createElement('div');
+      summary.id='communitySummary';
+      summary.className='community-summary small';
+      $('#answerArea').appendChild(summary);
+    }
+    summary.textContent='みんなの回答を読み込めませんでした。通常の学習は続けられます。';
+  }
 }
 
 async function initialize(){
@@ -390,19 +504,21 @@ function renderQuestion(){
 function checkAnswer(){
   if(answered) return;
   const q=quiz[quizIndex];
-  let correct=false, unknown=false;
+  let correct=false, unknown=false, selectedValue=null;
   if(q.type==='fill'){
     const input=$('#fillAnswer');
     if(!input.value.trim()) return alert('答えを入力するか、「わからない」を選んでください。');
     unknown=input.value==='__UNKNOWN__';
+    selectedValue=unknown?'unknown':input.value;
     const accepted=[q.answer,...(q.aliases||[])].map(normalize);
     correct=!unknown && accepted.includes(normalize(input.value));
   }else{
     const selected=$('#answerArea .selected');
     if(!selected) return alert('選択肢を選んでください。');
-    unknown=selected.dataset.value==='unknown';
+    selectedValue=selected.dataset.value;
+    unknown=selectedValue==='unknown';
     if(!unknown){
-      const value=Number(selected.dataset.value);
+      const value=Number(selectedValue);
       correct=q.type==='tf' ? value===(q.answer?0:1) : value===q.answer;
     }
   }
@@ -418,6 +534,7 @@ function checkAnswer(){
   }
   saveProgress();
   renderStudy();
+  submitAndRenderAnswerStats(q,selectedValue,correct);
 
   const source=q.source||{};
   const link=source.url ? `<a href="${escapeAttr(source.url)}${source.pageTarget?`#page=${source.pageTarget}`:''}" target="_blank" rel="noopener">資料を開く</a>` : `<p class="small muted">資料リンクは未設定です。手元の資料から該当ファイル・ページを開いてください。</p>`;
