@@ -25,6 +25,11 @@
     .tabs{display:flex;gap:7px;overflow:auto;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10}
     .tab{white-space:nowrap;background:#e7edf5;color:#344054}.tab.active{background:var(--accent);color:#fff}
     .primary{background:var(--accent);color:#fff}.secondary{background:var(--accent-soft);color:#2944a8}.ghost{background:#eef2f7;color:#344054}
+    .mode{position:relative;transition:transform .16s ease,box-shadow .16s ease,background .16s ease,color .16s ease,border-color .16s ease;border:2px solid transparent}
+    .mode:hover{transform:translateY(-1px)}
+    .mode.active-mode{background:var(--accent);color:#fff;transform:scale(1.035);box-shadow:0 8px 20px rgba(49,94,251,.28);font-weight:800;border-color:#2448d8}
+    .mode.active-mode::after{content:"選択中";position:absolute;right:10px;top:8px;font-size:.72rem;background:rgba(255,255,255,.2);padding:3px 7px;border-radius:999px}
+    .mode:not(.active-mode){opacity:.78}
     .danger{background:#fff0f1;color:var(--bad)}
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
     .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
@@ -81,10 +86,10 @@
 
     <h2>問題形式</h2>
     <div class="grid">
-      <button class="secondary mode active-mode" data-mode="all">ランダム総合</button>
-      <button class="secondary mode" data-mode="fill">穴埋め</button>
-      <button class="secondary mode" data-mode="tf">○×</button>
-      <button class="secondary mode" data-mode="mcq">四択</button>
+      <button class="secondary mode active-mode primary" data-mode="all" aria-pressed="true">ランダム総合</button>
+      <button class="secondary mode" data-mode="fill" aria-pressed="false">穴埋め</button>
+      <button class="secondary mode" data-mode="tf" aria-pressed="false">○×</button>
+      <button class="secondary mode" data-mode="mcq" aria-pressed="false">四択</button>
     </div>
 
     <div class="grid">
@@ -195,7 +200,7 @@
 <script>
 'use strict';
 const STORAGE_KEY = 'study-platform-progress-v1';
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.1.1';
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
@@ -525,8 +530,14 @@ function escapeAttr(value){return escapeHtml(value)}
 
 $$('.tab').forEach(b=>b.onclick=()=>showView(b.dataset.view));
 $$('.mode').forEach(b=>b.onclick=()=>{
-  $$('.mode').forEach(x=>x.classList.remove('active-mode','primary'));
-  b.classList.add('active-mode','primary'); mode=b.dataset.mode; updateAvailability();
+  $$('.mode').forEach(x=>{
+    x.classList.remove('active-mode','primary');
+    x.setAttribute('aria-pressed','false');
+  });
+  b.classList.add('active-mode','primary');
+  b.setAttribute('aria-pressed','true');
+  mode=b.dataset.mode;
+  updateAvailability();
 });
 $('#scope').onchange=updateAvailability;
 $('#count').onchange=updateAvailability;
