@@ -76,6 +76,9 @@
     .toolbar{display:flex;gap:8px;flex-wrap:wrap}.toolbar>*{flex:1;min-width:150px}
     .notice{padding:12px;border-radius:12px;background:#fff8dd;color:#6f5500;line-height:1.55}
     .version{font-size:.8rem;color:var(--muted)}
+    .deeper-check{margin-top:14px;padding:14px 15px;border:1px solid #c8d5ff;border-left:5px solid var(--accent);border-radius:12px;background:#f5f7ff;line-height:1.65}
+    .deeper-check b{display:block;margin-bottom:4px;color:#2944a8}
+    .deeper-check .deeper-label{font-size:.82rem;font-weight:800;letter-spacing:.02em;color:#2944a8}
     .question-list-controls{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:14px 0}
     .question-stat-row{padding:15px 0;border-bottom:1px solid var(--line)}
     .question-stat-row:last-child{border-bottom:0}
@@ -249,7 +252,7 @@
 <script>
 'use strict';
 const STORAGE_KEY = 'study-platform-progress-v1';
-const APP_VERSION = '1.3.0';
+const APP_VERSION = '1.4.0';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCdg7RpNqtJz0dsLdpIMjPgbEqnxcIgzDw",
@@ -267,6 +270,26 @@ try{
   console.warn('Firebaseの初期化に失敗しました。通常の学習機能は利用できます。', error);
 }
 
+const DEEPER_QUESTIONS = {
+  q21: "PDCAの4段階をすべて言えますか。また、学校評価の結果を次の改善につなげるのはどの段階ですか？",
+  q22: "教科書の「検定」と「採択」は、誰が何を行う手続きか区別して説明できますか？",
+  q23: "公立学校の教科書を教育委員会が採択するまでの流れを説明できますか？",
+  q24: "共同採択制度とは何ですか。八重山教科書問題では何が争点になりましたか？",
+  q25: "伝習館高校事件では、教科書の使用と教師の教育活動について何が争われましたか？",
+  q26: "給特法は、どの学校・どの教育職員を対象に、どのような特例を定める法律ですか？",
+  q27: "教職調整額が設けられている理由と、時間外勤務手当との違いを説明できますか？",
+  q28: "超勤4項目の具体的な内容を4つすべて言えますか？",
+  q29: "在校等時間には何が含まれ、何が含まれないか説明できますか？",
+  q36: "教育委員会制度の主な根拠法は何ですか。学校教育法との役割の違いも説明できますか？",
+  q37: "教育課程は誰が、何を基準として編成しますか？",
+  q38: "教育課程編成における校長の権限と責任を説明できますか？",
+  q39: "学習指導要領が『基準』であるとは、各学校の教育課程編成とどのような関係ですか？",
+  q40: "学習指導要領の法的拘束力をめぐる基準説と大綱的基準説の違いを説明できますか？",
+  q47: "普通免許状の3種類と、それぞれの基礎資格の違いを言えますか？",
+  q49: "初任者研修の対象者・実施主体・法的な位置づけを説明できますか？",
+  q50: "自己評価・学校関係者評価・第三者評価の実施主体と違いを説明できますか？",
+  q51: "学校関係者評価に参加する人と、第三者評価を行う人の違いを説明できますか？"
+};
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
@@ -471,6 +494,11 @@ async function loadSubject(id){
   const entry=catalog.subjects.find(s=>s.id===id);
   if(!entry) throw new Error('科目が見つかりません');
   subject=await fetch(entry.dataFile,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`${entry.title}の問題データを取得できません`);return r.json()});
+  if(subject.id==='educational-organization'){
+    subject.questions.forEach(q=>{
+      if(DEEPER_QUESTIONS[q.id] && !q.deeperQuestion) q.deeperQuestion=DEEPER_QUESTIONS[q.id];
+    });
+  }
   activeSubjectId=id;
   communityStatsCache=null; communityStatsSubjectId='';
   localStorage.setItem('study-platform-active-subject',id);
@@ -624,6 +652,11 @@ function checkAnswer(){
     <b class="${correct?'good':'bad'}">${correct?'正解':'不正解'}</b>
     ${correct?'':`<p><b>正解：</b>${escapeHtml(answerLabel(q))}</p>`}
     <p>${escapeHtml(q.explanation||'')}</p>
+    ${q.deeperQuestion ? `<div class="deeper-check">
+      <span class="deeper-label">もう一歩確認</span>
+      <b>${escapeHtml(q.deeperQuestion)}</b>
+      <span class="small muted">頭の中や声に出して答えてから、次の問題へ進みましょう。</span>
+    </div>` : ''}
     <div class="source">
       <b>復習する資料</b><br>
       ${escapeHtml(source.displayFile||source.file||'資料未設定')}<br>
