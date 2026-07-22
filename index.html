@@ -597,6 +597,12 @@ function renderQuestion(){
     setTimeout(()=>$('#fillAnswer')?.focus(),50);
   }else{
     const options=q.type==='tf'?['○','×']:q.options;
+    if(q.type==='mcq'){
+      const hint=document.createElement('p');
+      hint.className='small muted';
+      hint.textContent='キーボードの1〜4でも選択できます。';
+      area.appendChild(hint);
+    }
     options.forEach((text,index)=>{
       const b=document.createElement('button');
       b.className='choice';
@@ -854,7 +860,26 @@ $('#importProgress').onclick=()=>$('#importFile').click();
 $('#importFile').onchange=e=>e.target.files[0]&&importProgress(e.target.files[0]);
 $('#resetProgress').onclick=resetCurrentSubject;
 document.addEventListener('keydown',e=>{
-  if(!$('#quiz').classList.contains('hidden') && e.key==='Enter'){
+  if($('#quiz').classList.contains('hidden')) return;
+
+  const activeTag=document.activeElement?.tagName;
+  const isTyping=activeTag==='INPUT' || activeTag==='TEXTAREA' || activeTag==='SELECT';
+
+  if(!answered && !isTyping){
+    const q=quiz[quizIndex];
+    if(q?.type==='mcq' && ['1','2','3','4'].includes(e.key)){
+      const choice=$(`#answerArea .choice[data-value="${Number(e.key)-1}"]`);
+      if(choice){
+        $('#answerArea').querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));
+        choice.classList.add('selected');
+        choice.focus();
+        e.preventDefault();
+        return;
+      }
+    }
+  }
+
+  if(e.key==='Enter'){
     if(answered) nextQuestion(); else checkAnswer();
   }
 });
